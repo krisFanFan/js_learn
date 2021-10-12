@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>开发中编码和解码使用场景</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var url = 'https://www.baidu.com?key=hello&name=张三&age=23'
+		// escape() unescape()
+		var es = escape(url)
+		console.log(es)//除了ASCII(a-z,0-9)的进行编码 如，中文，=，？，&,:
+		console.log(unescape(es))
+		
+		
+		 
+		//encodeURI() decodeURI() 常用
+		var en =encodeURI(url) 
+		console.log(en) //https://www.baidu.com?key=hello&name=%E5%BC%A0%E4%B8%89&age=23
+	    console.log(decodeURI(en))
+		
+		
+		// encodeURIComponent() decodeURIComponent() 类似结合了 escape和encodeurl
+		var enc =encodeURIComponent(url)
+		console.log(enc)
+		console.log(decodeURIComponent(enc))
+	</script>
+</html>

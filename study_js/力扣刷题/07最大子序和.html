@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="">
+			题目：<br>
+			给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+			<br>
+			示例 1：
+
+			输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
+			输出：6
+			解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
+			<br>
+			示例 2：
+			输入：nums = [1]
+			输出：1
+		</div>
+	</body>
+	<script type="text/javascript">
+		// var arr = [2,5,7,1]
+		// console.log(Math.max(...arr))
+		var nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+		var maxSubArray = function(nums) {
+			const memo = [];                 //定义一个数组
+			memo[0] = nums[0]                //只有一个数的时候memo的最大值就是nums[0]
+			let max = nums[0]
+			for (let i = 1; i < nums.length; i++) {   //从1开始遍历
+                memo[i] = Math.max(nums[i]+memo[i-1],nums[i]);  
+				max = Math.max(max,memo[i])   //更新最大值
+			}
+			return max;
+		};
+		// console.log(maxSubArray(nums))
+		// nums[i]+memo[i-1]  表示1+(-2)   nums[i]  表示1  两个数进行比较 取最大的值 赋到数组memo里 
+		// 这时memo[i]为 1
+		// 然后 最大值和memo[i]相比较 取最大值，每次更新最大值
+		
+		// 数组反转：指针
+		var str = '1234567'
+		 var joinStr = str.split('')
+		 var i = 0,j = joinStr.length-1
+		 for(var i= 0;i<joinStr.length;i++){
+			 if(i<j){
+				 [joinStr[i],joinStr[j]]=[joinStr[j],joinStr[i]]
+				 j--;
+				 
+			 }
+		 }
+		 console.log(joinStr.join(''))//1234567
+		
+		
+	</script>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>map</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 题目：给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
+		// 时间复杂度 为O(n) 
+		var nums = [4, 5, 0, 23, 2,2],
+			target = 7
+			
+			
+		var twoSum = function(nums, target) {
+			const map = new Map()
+			for (let i = 0; i < nums.length; i++) {
+				debugger
+				const complement = target - nums[i]
+				if(map.has(complement)) {
+					return [map.get(complement), i] //get是获取map里的值，下面反过来存，这里就刚好获取的是对应值的下标
+				} else {
+					map.set(nums[i], i)
+				}
+			}
+			return []
+		};
+		console.log(twoSum(nums, target))
+
+
+
+
+		// map知识点 
+		let obj = {
+			// 1: 'weizke',
+			name: '后盾人人' //对象里键名一样只能取一个
+		}
+		// let hd = {
+		// 	obj: '后盾人'
+		// }
+		let hd = {
+			[obj]: "后盾人"
+		}
+		// console.log(hd)
+		// console.log(hd[obj.toString()]) //后盾人
+		// 对象里的键只能是字符串
+
+		// map类型  对象保存键值对，并且能够记住键的原始插入顺序。
+		// 任何值(对象或者原始值) 都可以作为一个键或一个值。
+
+		let map = new Map()
+		// // 添加键
+		map.set('name', '后盾人')
+		// map.set(function(){},'hdcms')
+		// map.set({},'qinyanfei')
+		map.set(1,'baidu.com')
+		console.log(map)
+
+		// 使用new一个对象里添加数据
+		// let map = new Map([['hdcm','开源系统'],['houdunren','在线教程']])
+		// // 链式操作
+		// map.set('name','sina').set('obj','333')
+		//——————————————————————————————————————————————————	
+		// let map = new Map()
+		// map.set(obj,'baiduren.com')
+		// map.set('age','18.com')
+		//取值
+		console.log(map.get(1)) //baiduren.com
+		//删除单个
+		// console.log(map.delete(obj))//true
+		//删除全部
+		// map.clear()
+		//检测一个值存不存在
+		// console.log(map.has('age')) //返回true
+		let hd1 = new Map([
+			['name', '后盾人'],
+			['height', '188']
+		])
+		hd1.set('age', '44')
+		// 返回所有的键
+		// console.log(hd1.keys())
+		//获取所有的值
+		// console.log(hd1.values())
+		//获取键值对
+		// console.log(hd1.entries())
+
+		for (const keys of map.keys()) {
+			console.log(keys)
+		}
+		for (const [key, value] of hd1.entries()) {
+			// console.log(key,value)
+		}
+
+		hd1.forEach((value, key) => {
+			// console.log(value, key)
+		})
+		//——————————————————————————————————————————
+		// console.log(hd1)
+		// 变成数组
+		// console.log([...hd1])
+		// 键变成数组
+		// console.log([...hd1.keys()])
+		//把包含有后盾人的值的键值对变成一个集合
+		let newArr = [...hd1].filter(item => {
+			return item[1].includes('后盾人')
+		})
+		// console.log(newArr)
+		let edu = new Map(newArr)
+		// console.log(...edu.values())
+
+
+
+
+
+		//链式操作
+		// let str = 'aBc'  //toLowerCase() 方法用于把字符串转换为小写。
+		// console.log(str.toLowerCase().substr(1,1)) 
+	</script>
+</html>

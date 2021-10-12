@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>理解栈和队列</title>
+	</head>
+	<body>
+		<div id="">
+			<img src="./img/1.png" style="width: 500px; height: 200px;">
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 栈是一种先进后出的数据结构，也就是说最新添加的项最早被移出;LIFO(Last-IN-First-Out)
+		// 队列数据结构的访问规则是先进先出FIFO(Fist-In-First-out,先进先出)。队列在列表的末端添加项，从列表的前端移出项
+		var isAnagram = function(s, t) {
+			/*
+			s="anagram", t="nagaram"
+			这就属于异位词，(Vaild Anagram)长度一样，包含的字母都一样，每个字符出现的频率也一样，只是顺序不同而已
+			 */
+			/*
+			解题思路：1.长度不一致，直接返回false
+			2.
+			 */
+			if (s.length !== t.length) {
+				return false
+			}
+			const map = new Map
+			for (let i = 0; i < s.length; i++) {
+				if (map.has(s[i])) {
+					map.set(s[i], map.get(s[i]) + 1)
+				} else {
+					map.set(s[i], 1)
+				}
+
+
+				if (map.has(t[i])) {
+					map.set(t[i], map.get(t[i]) - 1)
+				} else {
+					map.set(t[i], -1)
+				}
+
+			}
+			for (const i of map.values()) {
+				if (i !== 0) {
+					return false
+				}
+			}
+			return true
+		};
+		console.log(isAnagram('anagram', 'nagaram'))
+
+
+
+
+
+
+
+
+
+
+		// const e =  Array(nums.length).fill(1)
+		// console.log(e)
+		// 	arr1.fill(7)
+		// 	console.log( arr1)
+		//栈和堆:数据存储
+
+		//数据结构 Js
+		// push pop unshift shift
+		// 数组  集成栈和队列两种规则
+		var arr = [1, 2, 3, 4, 5, 6, 7, 8]
+		// 通过栈的形式访问 结尾出入栈
+		arr.push(9) // [1,2,3,4,5,6,7,8,9]
+		// 出栈
+		var val = arr.pop() //9 被弹出的值为9
+		// 这时arr为[1,2,3,4,5,6,7,8]
+
+		// 开头出入栈
+		arr.unshift(9) //arr为[9,1,2,3,4,5,6,7,8]
+		arr.shift() //arr为[1,2,3,4,5,6,7,8]
+		// ————————————————————————————————
+
+		// 结尾出入栈 不影响原有数据位置索引
+		// 开头出入栈 影响原有数据位置
+	</script>
+</html>

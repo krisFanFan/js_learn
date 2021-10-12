@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>时间复杂度和空间复杂度</title>
+	</head>
+	<body>
+
+	</body>
+	<script type="text/javascript">
+		/*
+         时间复杂度
+         最常见的时间复杂度有哪几种
+         
+        复杂度	    名称
+        O(1)	    常数复杂度
+        O(log n)	对数复杂度 (二分搜索)
+        O(n)	    线性时间复杂度
+        O(n log n)	线性对数复杂度 (排序)
+        O(n²)	    平方
+        O(n³)	    立方  
+        O(2n)	    指数，一点数据量就卡的不行
+        O(n!)	    阶乘，就更慢了
+         */
+
+		//时间复杂度为O(1)的例子: 加减乘除 赋值
+		// if(i===1)  a=1 result=3+4 result = n*2
+		// array.push('a') array.pop()
+		//map.set()
+
+
+
+		//时间复杂度为O(n)的例子:for循环和while循环(不使用二分搜索)
+		// for(let i= 0;i<n;i++){}  let i =0;while(i<n)
+
+
+		// 时间复杂度为O(n^2)的例子: 嵌套for循环 while循环
+		/*
+		  for(var i =0;i<n;i++){
+			  for(var i = 0;i<n;i++){
+				  a+=i;
+			  }
+		  }*/
+		/* while(i<n){ //属于O(1)
+			 i++;j=i;
+			 while(j<n){
+				 i++
+			 }
+		 }*/
+
+
+
+		// O(log n)	对数复杂度 二分搜索,查找
+
+		// O(n log n)排序 array.sort()
+
+		// 优化方法:从低一级的复杂度寻找灵感
+		// O(n)->O(log n) 使用二分搜索
+	    //O(n log n)->O(n) 遇到需要排序的题，是否能通过set,map,heap解
+		//O(n^2)->O(n log n) 遇到嵌套循环，通过排序加for循环解
+
+
+
+		//————————————————————————————————————
+		// 空间复杂度 
+		/*
+		O(1)  ：  let n = 1  长度固定的也是O(1)
+		
+		O(n) 
+		:定义长度为n的数组，set，map 
+		用for循环生成一个长度为n的链表 *要自己创建的,题目传的不算
+		
+		O(n^2)
+		 :O(n²) 这种空间复杂度一般出现在比如二维数组，或是矩阵的情况下
+		*/
+
+
+		// .原地算法简介 在计算机科学中,一个原地算法(in-place algorithm)基本上不需要额外辅助的数据结构,
+	</script>
+</html>

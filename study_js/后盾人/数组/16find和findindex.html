@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 	let arr  = [1,2,3,4,5]
+		// 	let res = arr.find((item)=>{
+		// 		return item===2  //2
+		// 		return item===3456  //undefined
+		// 	})
+		// 	console.log(res) //2 如果查找到值，则直接返回值,没有值则返回undefined
+
+
+		let lessons = [{
+			name: 'js'
+		}, {
+			name: 'css'
+		}, {
+			name: 'java'
+		}]
+		// console.log(lessons.includes({name:'css'})) //查找引用类型会出错
+
+		let status = lessons.findIndex((item) => {
+			return item.name === 'css'
+		})
+		console.log(status) //查找到元素并返回元素 //用findndex则返回位置
+
+		// 自己实现find方法
+		function find(arr, callback) {
+			for (let i of arr) {
+				if (callback(i)) return i
+			}
+			return undefined;
+		}
+
+		let arr1 = [1, 2, 2, 30]
+		let findFF = find(arr1, item=>{return item ===30})
+		
+		console.log(findFF)
+	</script>
+</html>

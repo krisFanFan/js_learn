@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let hd = 2 ? (3 ? '后盾' : 'hdr') : 5
+
+		// 电话号模糊处理
+		function phone(mobile, len = 3) {
+			console.log(String(mobile).slice(0, 4))
+			return String(mobile).slice(0, len * -1) + '*'.repeat(len)
+		}
+		console.log(phone(13737354567,7))
+	</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let arr = [1, 2, 3, 44, 5]
+		console.log(arr.includes(2))
+		// function includes(arr, value) {
+		// 	for (const i of arr){
+		// 		if (i === value) return true
+		// 	}
+		// 	return false
+		// }
+		// 语句只有一行可省略
+		function includes(arr, value) {
+			for (const i of arr)if (i === value) return true
+			return false
+		}
+		console.log(includes(arr, 444))
+	</script>
+</html>
