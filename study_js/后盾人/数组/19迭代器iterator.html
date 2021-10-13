@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    let arr = ['苹果','西瓜','橘子']
+    var keys = arr.keys()
+    var keys = arr.values()
+
+    // console.log(keys.next());
+    // console.log(keys.next());
+    // console.log(keys.next());
+    // console.log(keys.next()); //到第四个完成true
+
+    let{value,done} = keys.next()
+    console.log(value,done)
+//————————————————————————————————————————————
+
+    let arr1 = ['苹果','西瓜','橘子']
+      let values = arr.values()
+      while (({value,done}=values.next())&&done===false) {
+        debugger
+        console.log(value)
+      }
+      
+  </script>
+</html>

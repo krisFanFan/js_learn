@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    var lessons = [{title:'苹果111111',price:134},{title:'西瓜3333333',price:666},{title:'葡萄22222',price:1234}]
+ 
+ /*   for(let i = 0;i<lessons.length;i++){
+      lessons[i].title=`引言${lessons[i].title}`
+    }
+
+    for(const value of lessons){  //值
+      value.title=`引言${lessons[i].title}` //value是一个对象引用类型会对原数组进行改变
+      console.log(value)                    //当是值类型时，原数组不会改变，相当于开辟新的内存空间
+    }
+
+    for(const key in lessons){  //索引
+      lessons[key].title=`引言1${lessons[key].title}`
+
+    }*/
+    // console.table(lessons)
+
+    //——————————————————————————————————————————————————————————
+     lessons.forEach((item,index,lessons)=>{
+       item.title = item.title.substr(0,2)
+     })
+     console.table(lessons)
+
+     
+  </script>
+</html>
