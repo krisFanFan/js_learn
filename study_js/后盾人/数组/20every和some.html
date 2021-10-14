@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <!-- 要求标题里必须包含一些关键词 -->
+    <input type="text" name="title" />
+    <span></span>
+  </body>
+  <script>
+    // some:对数组中每一项运行给定函数，如果每一项true，则返回true
+    let arr = ['苹果', '西瓜'];
+    let status = arr.every((value, index, arr) => {
+      return true;
+    });
+    console.log(status);
+
+    const user = [
+      {
+        name: '小红',
+        grade: 100,
+      },
+      {
+        name: '小姆',
+        grade: 96,
+      },
+      {
+        name: '小民',
+        grade: 55,
+      },
+      {
+        name: '小飞',
+        grade: 43,
+      },
+    ];
+    // 判断学生成绩是否都及格
+    let grade = user.every(function (item) {
+      return item.grade >= 60;
+    });
+
+    console.log(grade); //false
+
+    //————————————————————————————
+    // some:对数组中每一项运行给定函数，如果有一项为true，则返回true
+    let arr1 = ['苹果', '西瓜'];
+    let res = arr1.some((value, index, arr1) => {
+      return true;
+    });
+    console.log(res);
+
+    const user1 = [
+      {
+        name: '小红',
+        grade: 100,
+      },
+      {
+        name: '小姆',
+        grade: 96,
+      },
+      {
+        name: '小民',
+        grade: 55,
+      },
+      {
+        name: '小飞',
+        grade: 43,
+      },
+    ];
+    // // 判断学生成绩是否有100分
+    let grade1 = user1.every(function (item) {
+      return (item.grade = 100);
+    });
+    console.log(grade1); //true
+
+    let keyword = ['吃饭', '蛋糕'];
+    let title = document.querySelector('[name="title"]');
+    title.addEventListener('keyup', function () {
+      const res = keyword.some((key) => {
+        return this.value.indexOf(key) != -1;
+      });
+      if (!res) {
+        document.querySelector('span').innerHTML =
+          '必须包含关键词' + keyword.join(',');
+      }
+    });
+    console.log('jjss');
+  </script>
+</html>
