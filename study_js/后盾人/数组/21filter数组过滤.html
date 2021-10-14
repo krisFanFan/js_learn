@@ -9,9 +9,38 @@
   <script>
   
   let arr =['feifei','hdr']
-  arr.filter(function (value,index,arr) {
-    var c=  0 
-    
+ let result =  arr.filter(function (value,index,arr) {
+    return false //返回false 表示数组为空
+
   })
+  console.log(result)
+
+
+  let lessons = [
+    {title:'媒体查询响应式布局',name:'css'},
+    {title:'弹性盒模型',name:'css'},
+    {title:'MYSQL多表查询',name:'js'}
+  ]
+
+  var newArray = lessons.filter((value)=>{
+     return value['name']==='css' //返回课程名字是css的
+  })
+  console.table(newArray)
+
+// filter 原理
+let hd = [1,2,3,4,5]
+var Filter = function (arr,callback) {
+  let newArray = []; //存放想要的元素
+  for(const value of arr){
+     if (callback(value)===true){
+         newArray.push(value);
+     }
+  }
+return newArray
+}
+var Filter  =Filter(hd,function (value) {
+ return value>2
+})
+console.log(Filter) // 过滤掉2和3
   </script>
 </html>
