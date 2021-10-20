@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body></body>
+  <script>
+    let arr = [1, 2, 3, 4, 5];
+    //第一次pre值为1，value值为2
+    arr.reduce(function (pre, value, index, array) {});
+
+    arr.reduce(function (pre, value, index, array) {
+      //加了初始值，第一次pre为0，value为1
+    }, 0);
+    //————————————————————————————————————————————————————
+    //统计元素出现的次数
+    let arr1 = [1, 2, 4, 2, 2];
+    var arraycount = function (array, item) {
+      return array.reduce((pre, value) => {
+        pre = pre + (item == value ? 1 : 0);
+        // pre+=item==value?1:0
+
+        return pre;
+      }, 0);
+    };
+    console.log(arraycount(arr1, 2));
+
+    //获取元素总和
+    var findMax = arr1.reduce((pre, value) => {
+      return (pre += value);
+    }, 0);
+    console.log(findMax);
+
+    //获取元素最大值
+    var findmaxCount = function (arr) {
+      return arr.reduce((pre, value) => {
+        return pre > value ? pre : value;
+      });
+    };
+
+    console.log(findmaxCount(arr1));
+
+    let cart = [
+      { name: 'ipone', price: 12333 },
+      { name: 'mac', price: 11000 },
+      { name: 'ipad', price: 9000 },
+    ];
+    //获取最贵的商品
+    var findmaxPrice = function (cart) {
+      return cart.reduce((pre, value) => {
+        return pre.price > value.price ? pre : value;
+      }, 0);
+    };
+    console.log(findmaxPrice(cart));
+
+    //商品价格汇总
+    var cartsum = cart.reduce((pre, value) => {
+      return (pre += value.price);
+    }, 0);
+    console.log(cartsum);
+
+    // 获取商品超过10000块钱的，商品的名字
+    var findname = function (cart) {
+      return cart.reduce((arr, value) => {
+        value['price'] >= 10000 && arr.push(value.name);
+        return arr;
+      }, []);
+    };
+    console.log(findname(cart));
+
+    // 数组去重
+    var quc = arr1.reduce((arr, value) => {
+      !arr.includes(value) && arr.push(value);
+      return arr;
+    }, []);
+    console.log(quc);
+
+    let cart1 = [
+      { name: 'ipone', price: 12333 },
+      { name: 'mac', price: 11000 },
+      { name: 'mac', price: 11100 },
+      { name: 'ipad', price: 9080 },
+      { name: 'ipad', price: 9000 },
+    ];
+
+    // 去除重复的商品
+
+   var filterGoods =  function (arr) {
+    return  arr.reduce((arr,value)=>{
+      let find =   arr.find(item=>item.name ==value.name)
+      if(!find)arr.push(value)
+      return arr
+      },[])
+    }
+   
+
+    console.log(filterGoods(cart1));
+  </script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body></body>
+  <script>
+    let arr = ['feifei', 'hdr'];
+    let hd = arr.map(function (value, index, arr) {
+      value = `后盾人-${value}`;
+
+      return value;
+    });
+    // return 返回啥就是啥
+    console.table(arr); //因为是值类型,相当于复制了一份新的数组，原数组没有改变
+    console.table(hd);
+    //——————————————————————————————————
+
+    let lessons = [
+      { title: '媒体查询响应式布局', name: 'css' },
+      { title: '弹性盒模型', name: 'css' },
+      { title: 'MYSQL多表查询', name: 'js' },
+    ];
+    /*  lessons.map(function (value) {
+      value.click = 100;
+    });
+    console.table(lessons); */ //引用类型复制的是内存地址 原数组也改变
+
+    // 如果不想改变原数组，想要一个新数组
+    let hd1 = lessons.map(function (value) {
+      //  return Object.assign({click:100},value)
+      return {
+        title: value.title,
+        category: value.name,
+        price: 2222,
+      };
+    });
+
+    console.log(hd1);
+    console.log(lessons);
+  </script>
+</html>
