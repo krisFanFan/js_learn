@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <script>
+      // 弱类型语言,类型随值发生改变
+      var web = 'houden'; //包含声明和赋值
+      var web; //声明
+      web = 'houden'; //赋值
+      console.log(web);
+
+      var feifei = 'hdr',
+        name = '后盾人们',
+        age = 13;
+
+      // 一个值赋值给多个变量
+      var web = (url = name = '吃饭');
+
+      var dog = '小狗';
+      console.log(typeof dog); //string
+      dog = 99;
+      console.log(typeof dog); //number
+      dog = {};
+      console.log(typeof dog); //object
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <script>
+      let a = 5,
+        b = 3;
+      let c = a + b;
+
+      //a = a + 5; //简写a+=5
+      a += 5;
+
+      b *= 5;
+      // console.log(a, b);
+      //——————————————————————————————————
+      let n  = 1
+      // n = n+1
+      // ++n;
+      // n++;
+      // console.log(n)
+
+// 参与运算时 ++n 和n++不一样
+      let f = 2;
+      // let d = f+ ++n;
+      //相当于
+      let d = f+ (n=n+1);//4
+      let k = 1
+      let s = f + k++; //3
+      // console.log(s)
+
+    
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <script>
+      // 逻辑运算符
+      let a = 1,
+        b = 1;
+      if (a == 1 && b == 1) {
+        console.log('都为1');
+      }
+
+      let c = 1,
+        g = 0;
+      if (c) {
+        //true才会打印
+        console.log(45678);
+      }
+
+      // 逻辑运算符的赋值
+      let aa = 6,
+        bb = 0;
+      let f = aa || bb;
+      console.log(f); //aa为真则直接赋值f=6
+
+      // 碰到值为真就直接赋值给sex,后面的代码不走
+      // let sex = prompt('请输入密码') || '保密';
+      // console.log(sex);
+
+      function star(num) {
+        return '*'.repeat(num||5); //
+      }
+      // console.log(star(3))
+      console.log(star())//不传值默认5颗星 
+      //或者写默认值
+      function star(num=5) {
+        return '*'.repeat(num); //
+      }
+
+    </script>
+  </body>
+</html>

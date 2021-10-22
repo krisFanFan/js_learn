@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <script>
+      // console.log(web) //undefined
+      //  var web = 'houdun'
+
+      // 变量提升=》实际解析过程为
+      var web;
+      console.log(web);
+      web = 'hundun';
+
+      function hd() {
+        if (false) {
+          var web = 'feifei';
+        }
+        console.log(web); //undefined
+      }
+      hd();
+
+
+      // 相当于=》
+      function hd() {
+        var web;//声明
+        if (false) {
+           web = 'feifei'; //赋值 
+        }
+        console.log(web);
+      }
+
+      //建议使用变量时先声明
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <input type="password" name="password" />
+    <span id="msg"></span>
+  </body>
+  <script>
+    document
+      .querySelector("[name = 'password']")
+      .addEventListener('keyup', function () {
+        let length = this.value.length; //输入内容的长度
+        let span = document.querySelector('#msg');
+        let msg = '';
+        if (length > 10) {
+          msg = '密码非常安全';
+        } else {
+          msg = '密码太弱';
+        }
+        span.innerHTML = msg;
+      });
+
+    let start = false;
+    if (start) {
+      console.log('hundun');
+    } else {
+      console.log('假');
+    }
+
+    // switch————————————————————————
+
+    let name = '视频';
+    switch (name) {
+      case '产品':
+        console.log('打印产品');
+        break; //碰到break 就退出switch
+
+      case '视频':
+        console.log('打印视频');
+        break;
+
+      default:
+        //当所有case都不匹配就执行default
+        console.log('都不匹配执行default');
+        break;
+    }
+
+    let msg = 'warn';
+    switch (msg) {
+      case 'notice':
+      case 'warn':
+        console.log('提示或警告消息'); //提示和警告使用统一的处理方式
+        break;
+      case 'error': //当碰到error由于没有break,继续走default
+      default:
+        console.log('错误消息');
+    }
+
+    function message(age) {
+      let msg = '';
+      switch (true) {
+        case age > 60:
+          msg = '老年';
+          break;
+        case age > 40:
+          msg = '中年';
+          beeak;
+        case age > 20:
+          msg = '青年';
+          break;
+      }
+      return msg;
+    }
+    console.log(message(29));
+  </script>
+</html>
