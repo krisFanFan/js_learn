@@ -1,61 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
 
-<head>
-  <title></title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    let arr = ['苹果', '西瓜', '橘子'];
+    var keys = arr.keys();
+    var keys = arr.values();
 
-<body>
-  <div>
+    // console.log(keys.next());
+    // console.log(keys.next());
+    // console.log(keys.next());
+    // console.log(keys.next()); //到第四个完成true
 
-  </div>
-</body>
-<script>
-  let arr = ['苹果', '西瓜', '橘子']
-  var keys = arr.keys()
-  var keys = arr.values()
+    // let { value, done } = keys.next()
+    // console.log(value, done)
+    //————————————————————————————————————————————
 
-  // console.log(keys.next());
-  // console.log(keys.next());
-  // console.log(keys.next());
-  // console.log(keys.next()); //到第四个完成true
+    // let values = arr.values()
+    // while (({ value, done } = values.next()) && done === false) {
+    //   // console.log(value, done)
+    // }
 
-  // let { value, done } = keys.next()
-  // console.log(value, done)
-  //————————————————————————————————————————————
+    for (const value of arr) {
+      //  console.log(value)
+    }
+    for (const key of arr.keys()) {
+      console.log(key); //打印索引
+    }
+    for (const value of arr.values()) {
+      console.log(value); //打印值
+    }
+    // entries也是可迭代對象
+    let arr1 = ['苹果', '西瓜', '橘子'];
+    let entries = arr1.entries();
+    var { done, value } = entries.next();
+    console.log(done, value); //值在value数组里
 
-  // let values = arr.values()
-  // while (({ value, done } = values.next()) && done === false) {
-  //   // console.log(value, done)
-  // }
+    var {
+      done,
+      value: [a, b],
+    } = entries.next();
+    console.log(a, b);
 
- for(const value of arr){
-  //  console.log(value)
- }
- for(const key of arr.keys()){
-   console.log(key) //打印索引
- }
- for(const value of arr.values()){
-   console.log(value) //打印值
- }
-// entries也是可迭代對象
-  let arr1 = ['苹果', '西瓜', '橘子']
-  let entries = arr1.entries()
-  var {done,value} = entries.next()
-  console.log(done,value) //值在value数组里
-
-  var {done,value:[a,b]} = entries.next()
-console.log(a,b)
-
-
-for (var [k,v] of arr1.entries()) {
-   console.log(k,v)
-}
-
-
-
-</script>
-
+    for (var [k, v] of arr1.entries()) {
+      console.log(k, v);
+    }
+  </script>
 </html>

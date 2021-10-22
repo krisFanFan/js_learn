@@ -21,9 +21,36 @@
     <![endif]-->
 
     <script>
-      'use strict';
-      document.write('qwer');
-      let public = 66;
+      // 定义字符串
+      let hd = new String('feifie');
+      console.log(hd.toString()); //通过toString方法获得字符串
+
+      let fei = 'h"da'; // 等于=》"h\"da"
+      console.log(fei); //h"da
+
+      let fei1 = 'app\\le';
+      console.log(fei1); //输出app\le
+
+      //  \t    空格
+      //  \n    换行
+
+      // 字符串连接
+      let year = '2020',
+        site = '吃饭';
+      console.log(year + site + '喝水');
+      let all = `${year}${site}吃饭。`;
+      console.log(all);
+
+      // 模板字符串
+      // let str = 'red';
+      // str += '苹果';
+      // console.log(str); //red苹果
+
+      function show() {
+        return 'baidu.com';
+      }
+      let baidu = `www.${show()}`; //在模板字符串里调用函数
+      console.log(baidu);
     </script>
   </body>
 </html>
