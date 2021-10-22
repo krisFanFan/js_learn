@@ -46,11 +46,20 @@
       // str += '苹果';
       // console.log(str); //red苹果
 
+      //在模板字符串里调用函数
       function show() {
         return 'baidu.com';
       }
-      let baidu = `www.${show()}`; //在模板字符串里调用函数
+      let baidu = `www.${show()}`;
       console.log(baidu);
+      //字符串里写
+      let lessons = [{ title: 'apple' }, { title: '香蕉' }, { title: '橘子' }];
+      function template() {
+        return `<ul>${lessons
+          .map((item) => `<li> ${item.title}</li>`)
+          .join('')}</ul>`;
+      }
+      document.body.innerHTML = template();
     </script>
   </body>
 </html>

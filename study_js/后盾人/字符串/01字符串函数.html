@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <input type="text" name="password" />
+    <span></span>
+    <script>
+      //去掉密码两端的空格,让用户敲不了空格,并且密码长度小于5给与提示
+      let password = document.querySelector("[name='password']");
+      password.addEventListener('keyup', function () {
+        //keyup键盘抬起事件
+        this.value = this.value.trim();
+        let title = document.getElementsByTagName('span');
+        let error = '';
+        if (this.value.length <= 5) {
+          error = '密码必须大于5位';
+        }
+        title[0].innerHTML = error;
+      });
+
+      let name = 'apple';
+      console.log(name.length); //字符串长度
+      console.log(name.toUpperCase()); //字符串大写转换
+      console.log(name.toLowerCase()); //字符串小写转换
+      let str = '    duck  ';
+      console.log(str.trim()); //掉字符串两端的多余的空格
+
+      let hd = 'baiducom';
+      console.log(hd.charAt(1)); //charAt() 方法可返回指定位置的字符
+      console.log(hd[0]); //也可用迭代器方法返回指定位置的字符
+      // 字符串截取 slice substr substring
+      let fei = 'houdunren';
+    
+
+
+    </script>
+  </body>
+</html>
