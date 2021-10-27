@@ -33,13 +33,28 @@
       console.log(str.trim()); //掉字符串两端的多余的空格
 
       let hd = 'baiducom';
-      console.log(hd.charAt(1)); //charAt() 方法可返回指定位置的字符
+      console.log(hd.charAt(1)); //a,charAt()方法可返回指定位置的字符,默认0
       console.log(hd[0]); //也可用迭代器方法返回指定位置的字符
+
       // 字符串截取 slice substr substring
+
+      // substr 不建议使用
       let fei = 'houdunren';
-    
+      console.log(fei.slice(2)); //udunren
+      console.log(fei.substring(2)); //udunren
+      console.log(fei.substr(2)); //udunren
 
+      console.log(fei.slice(1, 3)); //ou
+      console.log(fei.substring(1, 3)); //ou
+      console.log(fei.substr(1, 3)); //oud
 
+      console.log(fei.slice(-3)); //ren
+      console.log(fei.substring(-3)); //houdunren
+      console.log(fei.substr(-3)); //ren
+
+      console.log(fei.slice(-3, -1)); //re
+      console.log(fei.substring(-3, -1)); //
+      console.log(fei.substr(-3, 2)); //res
     </script>
   </body>
 </html>

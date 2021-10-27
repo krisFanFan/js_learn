@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <script>
+      const hd = 'houdunren';
+
+      console.log(hd.replace('houdunren', 'baidu')); //baidu
+
+      // 字符串重复
+      // console.log('*'.repeat(5));
+
+      // 电话号码模糊处理
+      function phone(mobile, len = 3) {
+        // console.log(String(mobile).slice(0, 9));
+        // console.log(String(mobile).slice(0, len * -1));
+        return String(mobile).slice(0, len * -1) + '*'.repeat(len);
+      }
+
+      console.log(phone(13083771680, 2));
+    </script>
+  </body>
+</html>

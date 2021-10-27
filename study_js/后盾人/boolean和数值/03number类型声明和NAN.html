@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+  </head>
+  <input type="text" name="cms" value="99" />
+
+  //限制值为number类型
+  <!-- <input type="number" name="cms" value="99" /> -->
+
+  <body>
+    <script>
+      let number = new Number(44);
+      console.log(typeof number); //object 对象方式声明的为object 为引用类型
+      console.log(number + 1); //45
+      console.log(number.valueOf() + 1); //45
+
+      let newNumber = 11.346; //为值类型
+      console.log(Number.isInteger(newNumber)); //检查是否为整数
+      console.log(newNumber.toFixed(2)); //四舍五入
+
+      // NaN ===>not a number
+      // 例如==>
+      console.log(Number('apple')); //当我们期待apple是一个数值才能转换成数值类型,当它不是时就返回 NaN
+      console.log(2 / 'apple'); //NaN
+      console.log(NaN == NaN); //false
+
+      console.log(Number.isNaN(2 / 'ww')); //true 判断值是否为NaN,是则返回true,反之false
+
+      //Object.is 判断值是一样的，他们的值就相等，返回true
+      console.log(Object.is(2 / 'ww', NaN)); //true
+
+      const cms = document.querySelector("[name='cms']").value;
+      console.log(typeof cms); //string
+
+      let numStr = 'text100edit';
+      console.log(parseInt(numStr)); //NaN 因为text100edit第一个值不是数字
+
+      let Array = [1],
+        arr = [1, 2, 2];
+      console.log(Number(Array)); //1
+      console.log('arr为', Number(arr)); //NaN 数组为多个值就为NaN
+
+      // console.log(Number({})); //NaN 空对象为
+      // console.log(
+      //   Number({
+      //     valueOf: function () {
+      //       return 22;
+      //     },
+      //   })
+      // ); //22
+
+
+
+
+      
+    </script>
+  </body>
+</html>

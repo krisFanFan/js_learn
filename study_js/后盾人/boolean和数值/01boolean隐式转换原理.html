@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    true
+    <script>
+      // 标准语法书写
+      const boolean = new Boolean(true);
+      console.log(typeof boolean); //object
+
+      // 取值
+      console.log(boolean.valueOf());
+      if (boolean.valueOf()) console.log('为真');
+
+      let number = 0;
+      // false 的数值类型为==>0; true=>0
+      // 当数值和boolean比较时 false会自动转换成数值类型进行比较
+      console.log(number == false); //true
+
+      //数组和boolean比较,数组会先转换为数值
+      let array = [];
+      let arr = [1];
+      let doubleArr = [1, 2, 3];
+      console.log(Number(array)); //空数组为==>0;
+      console.log(Number(arr)); //有一个数时为==>1;
+      console.log(Number(doubleArr)); //多个数时为==>NaN;
+      console.log(array == false); // ==>true
+      console.log(doubleArr == true); //false
+
+      console.log(Boolean([])); // ==>true [],{}转换为boolean时为真
+
+      // ==>数值类型除了0外都为true;
+      // ==>字符串类型除了空字符串外都为true;
+      // ==>引用类型数组和对象都为真
+
+      // 数值转换为boolean类型操作==>
+      let num = 3;
+
+      // !num的值转化成boolean
+      //!!num 果不言而喻，负负得正，还是自身嘛，只不过转化成了boolean类型
+      fmber = !!num;
+      console.log(fmber); //true
+      console.log(Boolean(num)); //true
+
+      // 字符串转换为boolean类型==>
+      let string = 'aa';
+      console.log(!!string); //true
+      console.log(Boolean(string)); //true
+
+      //数组转换为boolean类型 ==>
+      let newarr = [];
+      console.log(!![]);
+      console.log(Boolean(newarr));
+
+      //对象转换为boolean类型 ==>
+      let newobj = {};
+      console.log(!!{}); //true
+      console.log(Boolean(newobj)); //true
+
+      let data = new Date();
+      console.log(data);
+      console.log(!!data); //true
+      console.log(Boolean(data)); //true
+    </script>
+  </body>
+</html>
