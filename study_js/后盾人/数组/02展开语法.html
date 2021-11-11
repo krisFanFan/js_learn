@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+<style>
+  .hide{
+    /* display:none; */
+  background:red;
+  }
+  
+</style>
+  <body>
+    <div>apple</div>
+    <div>flower</div>
+  </body>
+  <script>
+    let divbtn = document.querySelectorAll('div');
+
+    let arr = ['apple', 'flower'];
+    let hd = ['js', 'css'];
+
+    // 想要操作dom节点先把其变成数组
+    //方法1==>
+    Array.from(divbtn).map(function (item) {
+      // Array.from方法变成数组
+      console.log(item);
+    });
+
+    //方法2==>
+    Array.prototype.map.call(divbtn, function (item) {
+      console.log(item);
+    });
+
+    // 方法3==> 展开语法
+    // console.log([...div])
+    [...divbtn].map(item=>{
+       item.addEventListener('click',function () {
+         this.classList.toggle('hide')
+         //classList.toggle切换类：select，存在删除，不存在，就添加;
+       })
+    })
+    
+
+    // 把hd加到arr中
+    for (const value of hd) {
+      arr.push(value);
+    }
+    console.log(arr);
+
+    //展开语法
+    // let Array = [...arr, ...hd];
+    // console.log(Array);
+
+    // 求和 可以添加多个数
+    function show(...args) {
+      return args.reduce((s, v) => {
+        return (s += v);
+      }, 0);
+    }
+    console.log(show(1, 2, 100));
+  </script>
+</html>

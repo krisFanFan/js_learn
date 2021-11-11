@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
-	<script type="text/javascript">
-		// 1.通过条件判断给变量赋值布尔值的正确姿势
-		var a = 6
-		// if (a === 5) {
-		// 	b = true
-		// } else {
-		// 	b = false
-		// }
-		b = a === 6
-		// 2.在if中判断数组长度不为零的正确姿势
-		// if (arr.length !== 0) {}
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    // 1.通过条件判断给变量赋值布尔值的正确姿势
+    var a = 6;
+    // if (a === 5) {
+    // 	b = true
+    // } else {
+    // 	b = false
+    // }
+    b = a === 6;
+    // 2.在if中判断数组长度不为零的正确姿势
+    // if (arr.length !== 0) {}
 
-		// if (arr.length) {}
+    // if (arr.length) {}
 
-		// if (!arr.length) { //判断数组长度为0
+    // if (!arr.length) { //判断数组长度为0
 
-		// }
+    // }
 
+    // 5.使用includes简化if判断
+    if (a === 1 || a === 2 || a === 3 || a === 4) {
+    }
 
-		// 5.使用includes简化if判断
-		if (a === 1 || a === 2 || a === 3 || a === 4) {
-		}
+    // good
+    let arr = [1, 2, 3, 4];
+    if (arr.includes(a)) {
+    }
 
-		// good
-		let arr = [1, 2, 3, 4]
-		if (arr.includes(a)) {
-		}
-		
-		
-		
-		let person = {
-		    name: '张三',
-		    age: 38
-		}
-		
-		let name = person.name || '佚名'
-	</script>
+    let person = {
+      name: '张三',
+      age: 38,
+    };
+
+    let name = person.name || '佚名';
+  </script>
 </html>
