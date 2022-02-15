@@ -16,7 +16,6 @@
 		var twoSum = function(nums, target) {
 			const map = new Map()
 			for (let i = 0; i < nums.length; i++) {
-				debugger
 				const complement = target - nums[i]
 				if(map.has(complement)) {
 					return [map.get(complement), i] //get是获取map里的值，下面反过来存，这里就刚好获取的是对应值的下标

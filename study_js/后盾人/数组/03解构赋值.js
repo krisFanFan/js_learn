@@ -1,6 +1,6 @@
 let arr = ['pig',['123','22'],'cat','dog']
 let [a,b,c,d] = arr
-// console.log(a,b,c)
+console.log(a,b,c)
 let [,,year] = arr;
 console.log(year)//cat
 

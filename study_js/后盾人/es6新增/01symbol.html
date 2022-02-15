@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <script src="" async defer></script>
+</body>
+<script>
+  let hd = Symbol('这里写描述');
+  let hedu = Symbol('这里写描述');
+  console.log(hd == hedu); //false
+  console.log(typeof hd); //symbol 类型
+  console.log(hd);
+  hd.name = '算数'
+  console.log(hd.key)
+  console.log(hd.toString());
+
+  console.log(hd.description); //提取symbol的描述
+
+  //————————————————————————————
+  //  方法二定义symbol
+  let cms = Symbol.for('描述');
+  let edu = Symbol.for('描述'); //for方法声明不会重复声明
+
+  console.log(cms == edu); //true
+
+  let cms1 = Symbol.for('描述');
+  let edu1 = Symbol.for('描述1');
+
+  console.log(cms1 === edu1); //false
+
+  console.log(Symbol.keyFor(cms)); //获取描述
+
+  //Symbol的使用
+  let user1 = {
+    name: '李四',
+    key: Symbol()
+  }
+  let user2 = {
+    name: '李四',
+    key: Symbol()
+  }
+
+  //  
+  let grade = {
+    [user1.key]: {
+      js: 100,
+      css: 67
+    },
+    [user2.key]: {
+      js: 100,
+      css: 89
+    }
+  };
+  console.log(grade) //这样不会覆盖
+
+  console.log(grade[user1.key], '_____________________')
+
+// 扩展特性与对象属性保护
+let symbol = Symbol('这是一个symbol')
+let hd = {
+  name: '后盾人',
+  [symbol]: 'houdunren.com'
+};
+
+for (const key in hd) {
+  console.log(key) //只能读取到name,symbol读取不到
+}
+
+for (const iterator of Object.getOwnPropertySymbols(hd)) {
+  console.log(iterator) //遍历symbol属性
+}
+
+for (const iterator of Reflect.ownKeys(hd)) {
+  console.log(iterator) // 可以得到name和symbol
+}
+
+
+</script>
+
+</html>

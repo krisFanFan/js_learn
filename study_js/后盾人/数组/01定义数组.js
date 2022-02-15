@@ -1,6 +1,6 @@
 const array1 = new Array(1, 2, 3, 4, 5);
 const array = [1, 1];
-// console.log(array);
+console.log(array);
 // console.log(typeof array) //object 数组是一个对象，是一个引用类型
 
 const hd = ['hd']

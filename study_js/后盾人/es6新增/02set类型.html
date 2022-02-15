@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+</head>
+
+<body>
+  <div>
+    <input type="text" name="hd" />
+    <ul></ul>
+  </div>
+</body>
+
+<script>
+  //  不让出现重复的搜索词
+  let objVal = {
+    data: new Set(),
+    set keyword(word) {
+      this.data.add(word);
+    },
+    show() {
+      let ul = document.querySelector("ul")
+      ul.innerHTML = ""
+      this.data.forEach((value) => {
+        ul.innerHTML += `<li>${value}</li>`
+      });
+    }
+  }
+  let input = document.querySelector("[name='hd']");
+  input.addEventListener("blur", function () {
+    objVal.keyword = this.value;
+    objVal.show()
+  })
+
+
+
+
+
+
+
+
+
+
+  // let set = new Set()
+  let set = new Set([1, 2, 3, 4, 5]);
+  set.add(1);
+  set.add(1);
+  set.add('1');
+  console.log(set);
+
+  let Newset = new Set();
+  Newset.add(1);
+  Newset.add('1');
+
+  console.log(Newset); //set里可以打印1和字符串1
+
+  let obj = {
+    1: 'fei',
+    1: 'www',
+  };
+  console.log(obj); //在对象里属性都会转换字符串只能打印,后面把前面的覆盖 1:WWW
+
+  //  —————————————————————
+  // let hd = {
+  //   obj:"飞飞"
+  // }
+  // console.log(hd.obj) //可以打印
+
+  let hd = {
+    [obj]: '飞飞', //让obj对象变成hd属性，系统会把对象变成字符串
+  };
+  console.log(hd[obj.toString()]); //通过toString也可以打印
+
+  // 你可以通过两种方式访问对象属性:
+
+  // 实例 1
+  // person.lastName;
+
+  // 实例 2
+  // person["lastName"];
+
+  let setval = new Set([1, 2, '3', 5, 4]);
+  console.log(setval.size); //Set.prototype.size 返回 Set 对象中的值的个数
+  console.log(setval.has(10)); //判断是否存在 false
+  console.log(setval.delete(4)); //删除单个元素,成功返回 true,元素不存在或失败false。
+  console.log(setval);
+  console.log(setval.clear()); //清空一个 Set 对象中的所有元素。
+  console.log(setval.size); //0
+
+  // 1.set类型装换为数组
+  // let setArr = new Set(['苹果',"香蕉","草莓"])
+  // console.log(Array.from(setArr))
+  // console.log([...setArr])
+
+  // 需求：把大于5的元素移出
+  let setStr = new Set('1234567');
+  console.log(setStr);
+  setStr = new Set([...setStr].filter((item) => item < 5));
+  console.log(setStr);
+
+  //需求:数组去重
+  let array = [1, 2, 3, 4, 5, 6, 1];
+  array = [...new Set(array)];
+  console.log(array);
+
+  // 遍历set类型
+  let setFor = new Set(['duak', 'cat', 'dog'])
+  console.log(setFor.values());
+  console.log(setFor.keys());
+  console.log(setFor.entries());
+
+  setFor.forEach((value, key, set) => {
+    console.log(value, key, set)
+  });
+
+  for (const iterator of setFor) {
+    console.log(iterator)
+  }
+
+
+// 并集交集差集
+let usernameA = new Set([1,2,3,4,5])
+let usernameB = new Set([2,3,7,8])
+
+// 并集
+console.log(new Set([...usernameA,...usernameB]))
+
+// 差集
+console.log(
+  new Set(
+    [...usernameA].filter(item=>{
+      return !usernameB.has(item)
+    })
+  )
+)
+
+// 交集
+console.log(
+  new Set(
+    [...usernameA].filter(item=>{
+      return usernameB.has(item)
+    })
+  )
+)
+
+
+
+</script>
+
+</html>
