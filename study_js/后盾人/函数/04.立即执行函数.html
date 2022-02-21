@@ -13,40 +13,17 @@
     <link rel="stylesheet" href="" />
   </head>
   <body>
+    <script src="03.匿名函数和函数提升.js"></script>
+
     <script>
-      let a = 5,
-        b = 3;
-      let c = a + b;
+      // 立即执行函数(自调用函数)
+      (function myselfMove() {
+        console.log('自调用函数');
+      })();
 
-      //a = a + 5; //简写a+=5
-      a += 5;
-
-      b *= 5;
-      // console.log(a, b);
-      //——————————————————————————————————
-      let n  = 3
-      // n = n+1
-      // ++n;
-      // n++;
-      console.log(n)
-
-// 参与运算时 ++n 和n++不一样
-      let f = 4;
-      // let d = f+ ++n;
-      //相当于
-      let d = f+ (n=n+1);//4+4=8
-      console.log(d)
-
-
-      let k = 3
-      let s = f + k++; 
-      console.log(s,k)//7，4
-
-    
-
-
-
-
+      // 调用立即执行函数里面的hd函数
+      fei.hd();
+      fei1.show();
     </script>
   </body>
 </html>

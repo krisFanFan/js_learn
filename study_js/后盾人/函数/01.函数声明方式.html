@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    
+    
+    <script>
+// 函数声明方法一:使用对象形式定义函数
+let func = new Function('title','console.log(title)')
+func("houdunr")
+
+// 方法二 字面量形式,关键字
+function hd(a) {
+  console.log(a)
+}
+hd("字面量形式")
+
+// 方法三:表达式赋值定义
+let cms = function (params) {
+  console.log(params)
+};
+cms("表达式赋值")
+
+
+// 方法四
+let user = {
+  name:null,
+  setUsername (name) {
+   this.name = name;
+  },
+  getUsername(){
+    return this.name
+  }
+}
+
+user.setUsername('feifjie')
+console.log(user.getUsername)
+
+
+
+    </script>
+  </body>
+</html>

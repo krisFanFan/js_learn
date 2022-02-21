@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <div name="one">11</div>
+    <div name="two">22</div>
+
+  
+    <script>
+            // 1.点击弹出属性name里面的信息
+            let mapDiv = new Map();
+            document.querySelectorAll('div').forEach((item) => {
+              mapDiv.set(item, {
+                content: item.getAttribute('name'),
+              });
+            });
+            mapDiv.forEach((config, elem) => {
+              console.log(config, elem);
+              elem.addEventListener('click', () => {
+                alert(config.content);
+              });
+            });
+
+
+
+
+            // Map Map数据结构类似于对象，也是键值对的集合，并且能够记住键的原始插入顺序。 任何值(对象或者原始值) 都可以作为一个键名或一个值
+
+            let valMap = new Map();
+            valMap.set('name', 'houdun'); //存值
+            valMap.set(function () {}, 'ss'); //存函数作为键名
+            valMap.set({}, 1);
+            console.log(valMap);
+
+            // 构造函数创建Map对象.
+            let map = new Map([
+              [1, 1],
+              ['吃饭', '吃苹果'],
+            ]);
+            console.log(map);
+            console.log('aBcdef'.toLowerCase().slice(2, 4)); //字符串转换为小写
+
+            // map的链式操作
+            map.set('水果', 'apple').set('蔬菜', '大白菜');
+            console.log(map);
+
+            // map 一`增删改查
+            // 1.取值
+            let obj = {
+              name: '后盾人',
+            };
+            let mapDemo = new Map();
+            mapDemo.set('1', 1);
+            mapDemo.set(obj, 'houdunren.com'); //存值
+            console.log(mapDemo.get(obj)); //取值
+            console.log(mapDemo.delete(obj)); //删除值
+            // mapDemo.clear() //全部清空
+            console.log(mapDemo.has('name')); //是否存在值
+            console.log(mapDemo);
+
+            // 二`遍历map类型
+
+            let hd = new Map([
+              ['name', '冰墩墩'],
+              ['age', 3],
+              ['height', '123cm'],
+            ]);
+            console.log(hd.keys()); //获取所有键名
+            console.log(hd.values()); //获取所有键值
+            console.log(hd.entries()); //获取所有键值对
+            // console.log(hd)
+
+            // 循环得到键名
+            for (const key of hd.keys()) {
+              console.log(key);
+            }
+            // 循环得到键值
+            for (const key of hd.values()) {
+              console.log(key);
+            }
+            // 循环得到键值对，以数组形式
+            for (const key of hd.entries()) {
+              console.log(key);
+            }
+            for (const [key, value] of hd.entries()) {
+              console.log(key, value);
+            }
+            hd.forEach((value, key) => {
+              console.log(value, key); //得到值和键
+            });
+
+            // 三·map类型转换
+            let hdChange = new Map([
+              ['name', '冰墩墩'],
+              ['age', '1'],
+              ['height', '123cm'],
+            ]);
+
+            // console.log([...hdChange])// map转换为数组
+            // console.log([...hdChange.entries()])// map转换为数组
+            // console.log([...hd.keys()])//键名转换为数组
+            // console.log([...hd.values()])//值转换为数组
+
+            let newArr = [...hdChange].filter((item) => {
+              return item[1].includes('12');
+            });
+            console.log(new Map(newArr));
+    </script>
+  </body>
+</html>

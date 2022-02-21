@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+</head>
+<style>
+  ul {
+            list-style: none;
+            width: 400px;
+        }
+
+        ul li {
+            height: 30px;
+            padding: 0 10px;
+            line-height: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rebeccapurple;
+            margin: 10px 0;
+        }
+
+        ul li a {
+            color: red;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: salmon;
+            line-height: 20px;
+            text-decoration: none;
+        }
+
+        ul li span {
+            float: left;
+            color: #000;
+        }
+
+        .remove {
+            border: 1px solid #ccc;
+            cursor: not-allowed;
+        }
+
+        .remove span {
+            color: #ccc;
+        }
+
+        .remove a {
+            background: #ccc;
+            color: #666;
+        }
+</style>
+
+<body>
+  <div></div>
+  <div></div>
+
+  <ul>
+    <li>葡萄<a href="javascript:;">X</a></li>
+    <li>草莓<a href="javascript:;">X</a></li>
+    <li>芒果<a href="javascript:;">X</a></li>
+  </ul>
+
+</body>
+<script>
+  class Todos {
+    constructor() {
+      this.items = document.querySelectorAll("ul>li");
+      this.lists = new WeakSet();
+      this.items.forEach(item => this.lists.add(item));
+    }
+    run() {
+   
+      this.addEvent();
+    }
+    addEvent() {
+      this.items.forEach(item => {
+        item.querySelector("a").addEventListener("click", event => {
+          //检测WakeSet中是否存在Li元素
+          const parentElement = event.target.parentElement;
+          if (!this.lists.has(parentElement)) {
+            parentElement.classList.remove("remove");
+            this.lists.add(parentElement);
+          } else {
+            //删除后从记录的WakeSet中移除
+            parentElement.classList.add("remove");
+            this.lists.delete(parentElement);
+          }
+        });
+      });
+    }
+   
+  }
+  new Todos().run();
+
+
+
+
+  let nodes = new WeakSet()
+  // document.querySelectorAll('div').forEach(item => {
+  //   nodes.add(item) 
+  // });
+  console.log(nodes) //打印两个div
+
+  let divs = document.querySelectorAll('div')
+  divs.forEach(item => {
+    nodes.add(item)
+  });
+  nodes.delete(divs[0]) //移除一个还有一个div
+  console.log(nodes.has(divs[1]))
+  // WeakSet
+  // WeakSet 结构与 Set 类似，也是不重复的值的集合，只有三个方法，没有属性
+  // WeakSet.prototype.add(value)：向 WeakSet 实例添加一个新成员。
+  // WeakSet.prototype.delete(value)：清除 WeakSet 实例的指定成员。
+  // WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在 WeakSet 实例之中。
+
+
+  // WeakSet也是不重复的值的集合，但是只能用来存放对象。
+  // let set= new WeakSet(['aaaa','s']) //报错
+
+  // let set = new WeakSet()
+  // set.add(["hhh", "aaa"])
+  // set.add({
+  //   name: 'fei'
+  // })
+  // console.log(set)
+
+
+
+  //1.WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于 WeakSet 之中。
+
+  let hd = {
+    name: 'feifei'
+  };
+  let edu = hd;
+  // 内存被hd和esd 两个地方引用
+  // hd = null 
+  // console.log(hd)
+
+  // edu = null
+  // console.log(edu)
+  // 当内存没有被引用的时候系统会自动回收
+
+
+  let set = new WeakSet();
+  set.add(hd); //虽然valSet引用了hd,但是依然是被引用了两次，不会增加，垃圾回收机制不考虑 WeakSet 对该对象的引用
+  hd = null
+  edu = null
+  console.log(set) //虽然还能打印，但是里面已经没值了
+</script>
+
+</html>

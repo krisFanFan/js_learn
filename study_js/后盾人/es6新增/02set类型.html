@@ -33,7 +33,7 @@
       });
     }
   }
-  let input = document.querySelector("[name='hd']");
+  let input = document.getElementById("hd");
   input.addEventListener("blur", function () {
     objVal.keyword = this.value;
     objVal.show()
@@ -47,7 +47,7 @@
 
 
 
-
+// ES6提供了一种新的数据类型叫Set，来让我们存储一组具有唯一不重复的数据。
   // let set = new Set()
   let set = new Set([1, 2, 3, 4, 5]);
   set.add(1);
@@ -95,9 +95,9 @@
   console.log(setval.size); //0
 
   // 1.set类型装换为数组
-  // let setArr = new Set(['苹果',"香蕉","草莓"])
-  // console.log(Array.from(setArr))
-  // console.log([...setArr])
+  let setArr = new Set(['苹果',"香蕉","草莓"])
+  console.log(Array.from(setArr))
+  console.log([...setArr])
 
   // 需求：把大于5的元素移出
   let setStr = new Set('1234567');

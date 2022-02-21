@@ -8,6 +8,16 @@
 
   <body></body>
   <script>
+
+
+// callback （执行数组中每个值的函数，包含四个参数）
+// 1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））
+//     2、currentValue （数组中当前被处理的元素）
+//     3、index （当前元素在数组中的索引）
+//     4、array （调用 reduce 的数组）
+// initialValue （作为第一次调用 callback 的第一个参数。）类似相当于设置初始值
+
+
     let arr = [1, 2, 3, 4, 5];
     //第一次pre值为1，value值为2
     arr.reduce(function (pre, value, index, array) {});
