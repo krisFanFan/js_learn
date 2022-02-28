@@ -1,31 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
-  </head>
-  <body> 
-    <script>
-      let obj = {
-        name1: 'fifi',
-        show: function () {
-          function render() {
-              console.log("show方法里面的函数")
-              console.log(this) //这里的this指window对象
-          }
-          render()
-          // return this.name1; //this指的是当前obj对象的引用
-        },
-      };
-      console.log(obj.show());
 
-      // 全局环境下this就是window
-      // console.log(window);
-      // console.log(this);
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="" />
+</head>
+
+<body>
+  <script>
+    let obj = {
+      name1: '飞飞',
+      show: function () {
+        console.log(this)
+        return this.name1 //这里的this指的是当前obj对象的引用
+      },
+    };
+    console.log(obj.show());
+
+    // 全局环境下this就是window
+    console.log(window);
+    console.log(this);
+
+
+
+    let edu = {
+      name1: '飞飞',
+      show: function () {
+        function render() {
+          console.log(this) //打印window
+        }
+        render()
+      },
+    };
+    console.log(edu.show())
+
+    // 总结：如果函数是我们的对象属性，这时候this就是我们当前的对象，
+    // 如果只是一个普通的函数，那么这时this就是一个全局对象
+
+    // name = '1111'
+    function User(name) { //把李四传递给name,
+      this.name = name;  //这时候name就指的是当前参数了
+      this.show = function () {
+        return this.name
+      }
+    }
+    let list= new User('李四')
+    console.log(list.show())
+  </script>
+</body>
+
 </html>
