@@ -61,9 +61,15 @@
     // 求和 可以添加多个数
     function show(...args) {
       return args.reduce((s, v) => {
-        return (s += v);
-      }, 0);
+        return s +v;
+      });
     }
     console.log(show(1, 2, 100));
+
+
+    let fei =[1,2,3]
+    let [a,b,c] = [...fei]
+    
+    let [f,...edu]=[1,2,3,4]
   </script>
 </html>

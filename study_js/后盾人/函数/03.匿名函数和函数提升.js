@@ -24,13 +24,12 @@ function cms() {
 
 
 // 相加
-// let arrDuce = [2,3,4,5,6]
-
-// let sumde =arrDuce.reduce(function (pre,value) {
-//  console.log(pre,value)
-// return pre+value
-// },0)
-// console.log(sumde)
+let arrDuce = [2,3,4,5,6]
+let sumde =arrDuce.reduce(function (pre,value) {
+ console.log(pre,value)
+return pre+value
+},0)
+console.log(sumde)
 
 (function (window) {
   function show() {

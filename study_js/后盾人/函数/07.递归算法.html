@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <script>
+      // 使用函数完成递归算法,递归求5的阶层 5!
+      function factorial(params) {
+        // if(params==1) return 1;
+        // return params* factorial(params-1)
+        return params == 1 ? 1 : params * factorial(--params);
+      }
+      // console.log(factorial(3))
+
+
+      // 使用递归算求和
+      function sum(...params) {
+        // console.log(params)
+        if (params.length == 0) {
+          return 0;
+        }
+        // console.log(params.pop())
+        return params.pop() + sum(...params);
+      }
+      console.log(sum(1, 2, 3, 4, 5));
+
+      // 递归实现倒三角
+      function star(params) {
+        if(sum==0){
+          return 0
+        }
+        document.write('*'.repeat(params)+"<br>")
+        star(--params);
+        //  document.write('*'.repeat(params)+"<br>") 打印为undefined 可以用||
+        document.write('*'.repeat(params)+"<br>")||star(--params); 
+      }
+      star(5);
+      
+
+      // 通过递归改变课程的点击次数
+      let lessons =[{
+        title:"vue",
+        click:10
+      },{
+        title:"java",
+        click:36
+      },{
+        title:"C#",
+        click:14
+      },{
+        title:"PHP",
+        click:23
+      }]
+     
+
+     function change(lessons,num=100,i=0) {
+     if(i==lessons.length){
+       return lessons;
+     }
+       }
+console.table(change(lessons))
+    </script>
+  </body>
+</html>
