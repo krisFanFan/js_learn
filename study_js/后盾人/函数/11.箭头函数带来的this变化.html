@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 11.箭头函数带来的this变化</title>
+</head>
+
+<body>
+  <div>
+    <button>
+      后盾
+    </button>
+    <button>
+      飞飞
+    </button>
+  </div>
+</body>
+<script>
+  let lesson = {
+    site: '飞飞',
+    lists: ['js', 'css', 'mysql'],
+    show: function () {
+      return this.lists.map((item) => {
+        console.log(this) //换成箭头函数之后，this指向的就是上下文,就是指向父级作用域的this。都是指向lesson对象
+        return `${this.site}+${item}`
+      })
+    }
+  }
+  // console.log(lesson.show())
+
+
+
+  let Dom = {
+    site: 'houdun',
+    bind: function () {
+      const button = document.querySelector("button");
+      // button.addEventListener('click',function(){
+      //  nutton.addEventListener调用的是属于对象的方法
+      // console.log(this.innerText) 
+      // })
+
+      // 等同于
+      // button.onclick=function(){
+      // 给button对象加上一个onclick，然后赋值一个函数，这时候函数就变成对象的属性，
+      // 即当前this就是点击的按钮button对象
+      // }
+
+      // 当改为箭头函数
+      // button.addEventListener('click',()=>{
+      //   console.log(this.site) //this变成上下文，变成父级作用域的this,即当前Dom对像,
+      // })
+
+
+      // 当既想得到site,有需要button时候
+      // button.addEventListener('click', (event) => {
+      // console.log(event.target.innerText) //event.target指的是当前按钮
+      // alert(`${this.site}+${event.target.innerText}`)
+      // })
+
+      // 也可以
+      // const This = this
+      // button.addEventListener('click', function () {
+      // alert(`${This.site}+${this.innerText}`)
+      // })
+    }
+  }
+  Dom.bind()
+
+  // 又或者绑定一个方法
+  let demo = {
+    site: 'fiefie',
+    handleEvent: function (e) {
+      console.log(this.site + e.target.innerText)
+    },
+    bind: function () {
+      //const button = document.querySelector("button");
+      // button.addEventListener('click',this)
+
+      // 如果多个按钮
+      const button = document.querySelectorAll('button');
+      button.forEach((value) => {
+        value.addEventListener('click', (event) => {
+          alert(`${this.site}+${event.target.innerText}`)
+        })
+
+      })
+    }
+  }
+  demo.bind()
+</script>
+
+</html>
