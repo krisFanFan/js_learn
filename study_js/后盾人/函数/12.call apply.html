@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>apply  call  bind方法</title>
+</head>
+<body>
+  <div>
+    <button>
+ hdcms
+    </button>
+    <button>
+后盾人
+    </button>
+
+  </div>
+</body>
+<script>
+  
+//apply  call  bind方法
+
+function show() {
+   console.log(this.innerText)
+  }
+let button   = document.querySelectorAll("button")
+button.forEach((value)=>{
+  value.addEventListener('click',(event)=>{
+    show.call(event.target) //call 改变了this指向
+  })
+})
+
+// 使用apply 得到数组最大值
+let arr= [1,4,6,7]
+console.log(Math.max.apply(Math,arr))
+
+
+
+let lisi = {
+  name: '李四'
+};
+let wangwu = {
+  name: "张三"
+}
+function User(web,url) {
+  console.log(web + url +this.name)
+}
+User.call(lisi,'后盾人','houdunren.com')
+
+// 两者唯一不同的是：apply 的第一个参数还是调用函数this的指向，第二个参数是数组[arg1, arg2...]，call的第二参数是列表(arg1, arg2...)
+User.apply(lisi,['后盾人','houdunren.com'])
+
+</script>
+</html>
