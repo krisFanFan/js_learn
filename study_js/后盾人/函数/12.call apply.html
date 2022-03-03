@@ -51,5 +51,22 @@ User.call(lisi,'后盾人','houdunren.com')
 // 两者唯一不同的是：apply 的第一个参数还是调用函数this的指向，第二个参数是数组[arg1, arg2...]，call的第二参数是列表(arg1, arg2...)
 User.apply(lisi,['后盾人','houdunren.com'])
 
+
+
+
+// bind
+function show() { 
+  console.log(this.name)
+ }
+ show.bind({name:'jjj'})()//bind不是立刻执行
+
+function hd(a,b) { 
+  return this.f + a + b
+ }
+//  console.log(hd.call({f:1},1,1))
+// bind传参方式变化,可以两次传参机会
+let fun = hd.bind({f:1})
+
+console.log(fun(2,3))
 </script>
 </html>

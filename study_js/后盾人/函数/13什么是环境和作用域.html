@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>环境和作用域</title>
+</head>
+<body>
+  
+</body>
+<script>
+function hd() { 
+  let n = 1;
+ return function sum(){
+    console.log(++n)
+  }
+  sum()
+ }   
+let a=  hd()
+a() //实现每次调用累加
+a()
+
+ //函数没被调用，就不会开辟内存空间,当调用hd,就开辟了一块内存空间
+//  空间里有两个数据 n sum()
+// 当调用多次，就会反复创建内存空间
+</script>
+
+</html>

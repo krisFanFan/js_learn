@@ -1,90 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title></title>
-  </head>
-  <body></body>
-  <script type="text/javascript">
-    /**
-     * 1.不存在变量提升，必须先声明后使用
-     * 2.同一作用域下不能重复定义同一个名称
-     * 3.有严格的作用域
-     */
-    console.log(c); //打印undefined
-    var c = '吃饭';
-    //实际浏览器解析过程
-    var c;
-    console.log(c); 
-    c = '吃饭';
 
-    // 1.let不存在变量提升,没有预解析，*必须先声明，然后才能进行对应的使用
-    // console.log(web)
-    let web = '吃饭';
-    //报错打印 Cannot access 'web' before initialization
-    // 在声明之前不能访问'web'
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+</head>
+
+<body></body>
+<script type="text/javascript">
+  /**
+   * 1.不存在变量提升，必须先声明后使用
+   * 2.同一作用域下不能重复定义同一个名称
+   * 3.有严格的作用域
+   */
+  console.log(c); //打印undefined
+  var c = '吃饭';
+  //实际浏览器解析过程
+  var c;
+  console.log(c);
+  c = '吃饭';
+
+  // 1.let不存在变量提升,没有预解析，*必须先声明，然后才能进行对应的使用
+  // console.log(web)
+  let web = '吃饭';
+  //报错打印 Cannot access 'web' before initialization
+  // 在声明之前不能访问'web'
 
 
-    //* 3.有严格的作用域————————————————————————————————
-    // 1.var 属于函数作用域 只要在fun函数内都能拿到值
-    // 2.let 属于块级作用域  简单说对应的一个大括号就属于块级作用域
-    let web1 = 'wei';
-    function func() {
-      // console.log(web1); //打印wei此时函数内没有声明变量，就会去函数外找
-      let web1 = 'wzk' //如果函数内声明了，就在函数内找,此时会报错 声明在打印的后面
+  //* 3.有严格的作用域————————————————————————————————
+  // 1.var 属于函数作用域 只要在fun函数内都能拿到值
+  // 2.let 属于块级作用域  简单说对应的一个大括号就属于块级作用域
+  let web1 = 'wei';
+
+  function func() {
+    // console.log(web1); //打印wei此时函数内没有声明变量，就会去函数外找
+    let web1 = 'wzk' //如果函数内声明了，就在函数内找,此时会报错 声明在打印的后面
+  }
+  func();
+
+  {
+    let a = 1
+  }
+//  console.log(a)//在块级作用域外面不能打印a
+
+
+  //if 和for用作用域
+  function fun1() {
+    let n = 10;
+    if (true) {
+      let n = 100;
     }
-    func();
+    console.log(n); //10
+  }
+  fun1();
+  // if有作用域吗？
+  // 只有函数有作用域，if是没有作用域的
+  // 但在if{}语句中使用let,const ，他们会有块级作用域
 
 
 
 
 
-  
+  //const  声明一个只读的常量，一旦声明，常量的值就不能改变
+  const w = 100;
+  // w = 100; //值不能改
+  console.log(w); //报错Assignment to constant variable.
+  // const q;//报错  一定要初始化，不能只声明不赋值
 
-    //if 和for用作用域
-    function fun1() {
-      let n = 10;
-      if (true) {
-        let n = 100;
-      }
-      console.log(n); //10
-    }
-    fun1();
-    // if有作用域吗？
-    // 只有函数有作用域，if是没有作用域的
-    // 但在if{}语句中使用let,const ，他们会有块级作用域
-
-
+  // const声明对象 整个对象作为一个常量  可修改内部对象属性的name
+  // 但是不可直接修改当前 person 这个常量
+  const fanfan = {
+    name: '凡凡',
+    age: 19,
+  };
+  fanfan.age = 30;
+  console.log(fanfan);
 
 
+  // 2.同一作用域下不能重复定义同一个名称
+  var age = 1;
+  var age = 3;
+  console.log(age); //打印3
 
-    //const  声明一个只读的常量，一旦声明，常量的值就不能改变
-    const w = 100;
-    // w = 100; //值不能改
-    console.log(w); //报错Assignment to constant variable.
-    // const q;//报错  一定要初始化，不能只声明不赋值
+  let fan = 2;
+  // let fan  = 4;
+  console.log(fan); //报错//打印  Identifier 'fan' has already been 
+  //——————————————+
+  let fan1 = 5;
+  fan1 = 6; //let可以修改原有值
+  console.log(fan1); //6
+</script>
 
-    // const声明对象 整个对象作为一个常量  可修改内部对象属性的name
-    // 但是不可直接修改当前 person 这个常量
-    const fanfan = {
-      name: '凡凡',
-      age: 19,
-    };
-    fanfan.age = 30;
-    console.log(fanfan);
-    
-
-    // 2.同一作用域下不能重复定义同一个名称
-    var age = 1;
-    var age = 3;
-    console.log(age); //打印3
-
-    let fan = 2;
-    // let fan  = 4;
-    console.log(fan); //报错//打印  Identifier 'fan' has already been 
-    //——————————————+
-    let fan1 = 5;
-    fan1 = 6; //let可以修改原有值
-    console.log(fan1); //6
-  </script>
 </html>
