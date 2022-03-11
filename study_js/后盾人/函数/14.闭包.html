@@ -9,7 +9,8 @@
 </head>
 
 <body>
-
+  <div desc="飞">fei</div>
+  <div desc="飞1">fei1</div>
 </body>
 <script>
   //  闭包:函数可以访问到其他函数作用域当中的数据
@@ -37,7 +38,81 @@
   }
   console.log(ma(arr, 2, 4))
 
-  
+  function ma1(a, b) {
+    return function (v) {
+      return v >= a && v < b
+    }
+  }
+  console.log(arr.filter(ma1(2, 4)))
+
+
+  // 2.利用闭包根据字段排序商品
+  let price = [{
+      title: 'js',
+      price: 11,
+      click: 111
+    },
+    {
+      title: 'java',
+      price: 133,
+      click: 11
+    },
+    {
+      title: 'Php',
+      price: 13,
+      click: 1333
+
+    },
+  ]
+  // 按价格或点击量排序
+  function order(field, type = 'asc') {
+    return function (a, b) {
+      if (type == 'asc') return a[field] > b[field] ? 1 : -1
+      return a[field] > b[field] ? -1 : 1
+    }
+  }
+  let fei = price.sort(order("click", 'asc'))
+  console.log(fei)
+  arr1 = [8, 4, 1].sort(function (a, b) {
+    //a-b为负-1 升序从小到大,  b-a为正 从大到小
+    return a > b ? 1 : -1
+  })
+  console.log(arr1)
+
+  // 闭包内存泄漏
+  let divs = document.querySelectorAll('div')
+  divs.forEach(function (item) {
+    let desc = item.getAttribute('desc') //优化内存，避免内存泄漏
+    item.addEventListener('click', function () {
+      alert(desc)
+    })
+    item = null;
+  })
+
+
+// 闭包的历史遗留问题
+// let history = {
+//   user:'菲菲',
+//   get:function () {
+//     const This = this
+//     return function () {
+//       return This.user; //属于指向window,需要把this赋值给一个常量
+//     }
+//   }
+// }
+
+
+let history = {
+  user:'菲菲',
+  get:function () {
+    return  ()=> {
+      return this.user; //改用箭头函数
+    }
+  }
+}
+
+console.log(history.get()())
+
 </script>
 
 </html>

@@ -11,19 +11,28 @@
 
 </body>
 <script>
-  // let arr = [22,5,3,9,7]
+  let ar = [22,5,3,9,7]
   // arr = arr.sort((a,b)=>a-b)
 
-  // arr=arr.sort(function (a,b) {
-  //   //为负-1 从小到大  为正 从大到小
-  //   return a-b
-  // })
+  arr1=ar.sort(function (a,b) {
+    //a-b为负-1 升序从小到大,  b-a为正 从大到小
+    return a-b
+  })
 
-  // console.log(arr)
+  console.log(arr1)
 
 
 
-  let cart = [{ name: '苹果', price: 1200 }, { name: '葡萄', price: 100 }, { name: '菠萝', price: 9200 }]
+  let cart = [{
+    name: '苹果',
+    price: 1200
+  }, {
+    name: '葡萄',
+    price: 100
+  }, {
+    name: '菠萝',
+    price: 9200
+  }]
   cart = cart.sort((a, b) => a.price - b.price)
 
   // cart = cart.sort(function (a,b) {
@@ -33,22 +42,22 @@
 
   let arr = [1, 10, 3, 9, 7]
 
-  var sort = function (arr,callback){
+  var sort = function (arr, callback) {
     for (const i in arr) {
       for (const j in arr) {
-        if (callback(arr[i],arr[j])<0) { //第二次循环 arr[i]为5,arr[j]为22
+        if (callback(arr[i], arr[j]) < 0) { //第二次循环 arr[i]为5,arr[j]为22
           const temp = arr[i]; //这时把5存起来
-          arr[i] = arr[j];// 把 arr[j]的22值赋给arr[i]
-          arr[j] = temp  //然后arr[j]为5
+          arr[i] = arr[j]; // 把 arr[j]的22值赋给arr[i]
+          arr[j] = temp //然后arr[j]为5
         }
       }
     }
     return arr
   }
 
- var arr1= sort(arr,function (a,b) {
-   return a-b
- })
+  var arr1 = sort(arr, function (a, b) {
+    return a - b
+  })
 
   console.log(arr1)
 </script>

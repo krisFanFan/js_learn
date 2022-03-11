@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01面对对象与函数编程对比</title>
+</head>
+<body>
+  
+</body>
+<script>
+  let name = 'feifei';
+let grade=[
+  {name:'js',score:22},
+  {name:'css',score:45}
+
+]
+function average(grade,name){
+   let total = grade.reduce((pre,value)=>pre+value.score,0)
+   return `${name}的平均成绩是${total/grade.length}`
+}
+average(grade,name)
+
+// 变成对象操作
+let user= {
+  name:'feifei',
+  grade:[
+    {name:'js',score:22},
+    {name:'css',score:45}
+  
+  ],
+  average:function(){
+    let total = grade.reduce((pre,value)=>pre+value.score,0)
+    return `${name}的平均成绩是${total/grade.length}`
+ }
+}
+
+console.log(user.average())
+</script>
+</html>
