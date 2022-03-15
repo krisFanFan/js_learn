@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遍历操作与Dom绘制</title>
+</head>
+<body>
+ 
+</body>
+<script>
+let lessons =[
+  {name:'js',click:999},
+  {name:'css',click:1}
+]
+//遍历放到页面文档当中
+ let ul = document.createElement('ul')
+for (const iterator of lessons) {
+  console.log(iterator.name)
+   let li = document.createElement('li')
+   li.innerHTML = `课程:${iterator.name},点击数${iterator.click}`
+    ul.appendChild(li)
+}
+
+document.body.appendChild(ul);//把ul放到body里面
+
+
+
+
+let hd={
+  width:222,
+  height:333,
+}
+// Object.keys(hd)//获取所有属性名字
+// Object.values(hd) //获取所有的值
+// Object.entries(hd)// 把属性名一起获取组成一个数组
+
+
+for( const key in hd ){
+  console.log(hd[key])
+}
+
+// for or是操作可迭代对象,不能直接操作，需要Object.keys()
+for(const key of Object.keys(hd)){
+  console.log(key)
+}
+
+for(const key of Object.values(hd)){
+  console.log(key)
+}
+for(const [key,value] of Object.entries(hd)){
+  console.log(key)
+}
+</script>
+</html>

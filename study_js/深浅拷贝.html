@@ -1,76 +1,95 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>深浅拷贝</title>
-	</head>
-	<body>
-	</body>
-	<script type="text/javascript">
-	// B复制A，A变，B变，浅拷贝。
-	// B复制A，A变，B不变，深拷贝。
-		var obj = {
-			a: 'hello',
-			b: {
-				a: 'world',
-				b: 111
-			},
-			c: [11, 'jack', 'Tom']
-		}
-		// 浅拷贝
-		// objCopy 遍历
-		function simpleClone(objNew) {
-			var obj = {}
-			for (var i in objNew) {
-				obj[i] = objNew[i]
-			}
-			return obj
-		}
 
-		// var objCopy = simpleClone(obj)
-		// objCopy.b.a = '改变'
-		// console.log(objCopy)
-		// console.log(obj)
+<head>
+  <meta charset="utf-8">
+  <title>深浅拷贝</title>
+</head>
 
-		//object.creat()
-		// var objCopy = Object.create(obj)
-		// objCopy.b.a = 'NOhello'
-		// console.log(objCopy)
-		// console.log(obj)
+<body>
+</body>
+<script type="text/javascript">
+  // B复制A，A变，B变，浅拷贝。
+  // B复制A，A变，B不变，深拷贝。
+  var obj = {
+    a: 'hello',
+    b: {  
+      a: 'world',
+      b: 111
+    },
+    c: [11, 'jack', 'Tom']
+  }
+  // 浅拷贝
+  // objCopy 遍历
+  function simpleClone(objNew) {
+    var obj = {}
+    for (var i in objNew) {
+      obj[i] = objNew[i]
+    }
+    return obj
+  }
 
-		// 展开语法
-		let objcopy = {...obj}
-		objcopy.b.a = 'yyy'
-		console.log(objcopy)
-		console.log(obj)
-		
-		// 深拷贝
-		// 遍历形式
-		function deepClone(startObj, endobj) {
-			var obj = endobj || {}
-			for (var i in startObj) {
-				if (typeof startObj[i] === 'object') {
-					obj[i] = startObj[i].constructor === Array ? [] : {} // 再次判断其构造函数是数组的构造函数还是对象的构造函数
-					deepClone(startObj[i], obj[i])
-				} else {
-					obj[i] = startObj[i]
-				}
-			}
-			return obj
-		}
-		var objCopy = deepClone(obj)
-		objCopy.b.a = '哈哈哈哈哈哈哈哈'
+  var objCopy = simpleClone(obj)
+  // objCopy.b.a = '改变' //拷贝后也会改变
+  // console.log(objCopy)
+  // console.log(obj)
+
+  //方法2: object.creat()
+  // var objCopy = Object.create(obj)
+  // objCopy.b.a = 'NOhello'
+  // console.log(objCopy)
+  // console.log(obj)
+
+  //方法3 展开语法
+  // let objcopy = {
+  //   ...obj
+  // }
+  // objcopy.b.a = 'yyy'
+  // console.log(objcopy)
+  // console.log(obj)
+
+  // 方法4
+  let h = Object.assign({},obj); //assign也可以完成深拷贝，但当是多层对象时不行
+ obj.b.a = 'wzk'
+console.log(h,obj)
 
 
-		//JSON.parse,JSON.stringify
-		// var objCopy = JSON.parse(JSON.stringify(obj)) //object->string
-		// objCopy.b.a = 'NOhello'
-		// console.log(objCopy)
-		// console.log(obj)
-		
-		// 后盾人深拷贝 
-		function copy (obj){
-			
-		}
-	</script>
+
+  // 深拷贝
+  let hd = {
+    name: '非'
+  };
+  let cms = {
+    name: hd.name
+  }
+  hd.width = 111
+  // console.log(hd, cms)
+  // 遍历形式
+  function deepClone(startObj, endobj) {
+    var obj = endobj || {}
+    for (var i in startObj) {
+      if (typeof startObj[i] === 'object') {
+        obj[i] = startObj[i].constructor === Array ? [] : {} // 再次判断其构造函数是数组的构造函数还是对象的构造函数
+        deepClone(startObj[i], obj[i])
+      } else {
+        obj[i] = startObj[i]
+      }
+    }
+    return obj
+  }
+  var objCopy = deepClone(obj)
+  objCopy.b.a = '哈哈哈哈哈哈哈哈'
+
+
+  //JSON.parse,JSON.stringify
+  // var objCopy = JSON.parse(JSON.stringify(obj)) //object->string
+  // objCopy.b.a = 'NOhello'
+  // console.log(objCopy)
+  // console.log(obj)
+
+
+
+  
+</script>
+
 </html>
