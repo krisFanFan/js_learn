@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // 对象属性的添加删除操作
+let hd = {};
+hd.name='cat'
+hd.height=193
+
+delete hd.name
+console.log(hd)
+
+// 对象与原型链属性检测
+console.log(hd.hasOwnProperty('name')) //判断是否有这个属性
+
+let arr = ['hd','dog']
+ console.log(arr.hasOwnProperty('length'))
+ console.log(arr.hasOwnProperty('concat'))
+// arr.hasOwnProperty只检测自己当前属性，不检测上一级原型
+
+console.log('length' in arr)
+console.log('concat' in arr)   //即检测自己也检测原型
+
+let a = {
+   name:'后盾人'
+}
+let b = {
+  url:'houdunren.com'
+}
+
+Object.setPrototypeOf(a,b) //把b对象设置为a对象的原型
+console.log(a)
+console.log(a.hasOwnProperty('url')) //false
+console.log('url' in a) //true
+
+</script>
+</html>

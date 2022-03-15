@@ -52,3 +52,10 @@ console.log(f,b,c)
 let threeObj = {name1:'fe',url:'ss'}
 let {name1,url,total="2"}=threeObj;
 console.log(name1,total)
+
+// 4.函数参数的解构特性
+function hd4({name,age}) {  
+  console.log(name,age)
+
+}
+hd4({name:'非',age:13})
