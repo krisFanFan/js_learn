@@ -13,7 +13,7 @@
   // B复制A，A变，B不变，深拷贝。
   var obj = {
     a: 'hello',
-    b: {  
+    b: {
       a: 'world',
       b: 111
     },
@@ -49,9 +49,9 @@
   // console.log(obj)
 
   // 方法4
-  let h = Object.assign({},obj); //assign也可以完成深拷贝，但当是多层对象时不行
- obj.b.a = 'wzk'
-console.log(h,obj)
+  let h = Object.assign({}, obj); //assign也可以完成深拷贝，但当是多层对象时不行
+  obj.b.a = 'wzk'
+  console.log(h, obj)
 
 
 
@@ -63,7 +63,6 @@ console.log(h,obj)
     name: hd.name
   }
   hd.width = 111
-  // console.log(hd, cms)
   // 遍历形式
   function deepClone(startObj, endobj) {
     var obj = endobj || {}
@@ -88,8 +87,28 @@ console.log(h,obj)
   // console.log(obj)
 
 
+  let objData = {
+    name: 'houdunreb',
+    user: {
+      a: 1
+    }
+  }
 
-  
+  function copy(objData) {
+    let res = {}
+    for (const i in objData) {
+
+      res[i] = typeof objData[i] === 'object' ? copy(objData[i]) : objData[i]
+
+    }
+    return res
+  }
+
+  let res = copy(objData)
+  res.user.a = 66666;
+  console.log(res)
+  objData.user.a = 22222;
+  console.log(objData)
 </script>
 
 </html>
