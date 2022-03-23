@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型初步认识</title>
+</head>
+<body>
+  
+</body>
+<script>
+  /*
+  每个对象都有一个原型prototype对象，通过函数创建的对象也将拥有这个原型对象。原型是一个指向对象的指针。
+
+  。每个实例对象（object）都有一个私有属性（称之为 __proto__ ）指向它的构造函数的原型对象（prototype）。该原型对象也有一个自己的原型对象（__proto__），层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节。
+  */
+
+ let hd ={}
+ let xj = {}
+//  Object.getPrototype(obj)是ES5中用来获取obj对象的原型对象的标准方法。
+function User(name,passwordHash) {
+  this.name = name;
+  this.passwordHash = passwordHash;
+}
+let u = new User('feifie','11') //User会主动为u指定一个原型，两个人使用一个原型
+//  console.log(Object.getPrototypeOf(hd)==Object.getPrototypeOf(xj))
+console.log(u.__proto__==User.prototype) //true
+// console.log(User.prototype)
+// Object.getPrototypeOf(u) === User.prototype; // true
+let arr = []
+console.log(arr.__proto__==Array.prototype)
+let str = ''
+console.log(str.__proto__==String.prototype)
+let bool = true
+console.log(bool.__proto__==Boolean.prototype)
+let reg = /a/;
+console.log(reg.__proto__ ==RegExp.prototype)
+
+
+/*
+C.prototype用于获取由构造函数 new C() 创建的对象的原型。
+Object.getPrototype(obj)是ES5中用来获取obj对象的原型对象的标准方法。
+obj.__proto__是获取obj对象的原型对象的非标准方法。
+
+
+所以一般我们是不会直接访问C.prototype去获取原型对象的，在ES5的环境中，我们使用Object.getPrototype(obj)来获取原型对象，而在不支持ES5的环境中，我们可以考虑用__proto__这样的非标准方法来当做权宜之计，希望各位不明白的同学能牢记这些区别。
+*/
+
+
+
+
+
+
+
+
+/*
+2.没有原型的对象
+ECMAScript 5 中引入了一个新方法：Object.create()。可以调用这个方法来创建一个新对象。新对象的原型就是调用 create 方法时传入的第一个参数：
+*/
+let crea = Object.create(null,{
+  name:{
+    value:'www'
+  }
+})
+// console.log(crea) //没有原型
+
+
+
+</script>
+</html>

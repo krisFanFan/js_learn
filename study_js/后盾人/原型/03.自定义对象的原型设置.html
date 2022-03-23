@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  
+</body>
+<script>
+let hd = {name:"hd"}
+let parent = {name:'parent',show(){
+  console.log(this.name)//这个this始终是你调用的对象的this，即下面的hd的对象的name
+}}
+// console.log(hd.__proto__ ==Object.prototype)
+Object.setPrototypeOf(hd,parent)//设置hd的原型是parent
+// console.log(hd)
+hd.show()//hd也可以用自己设置的原型里面的方法show
+parent.show()
+</script>
+</html>

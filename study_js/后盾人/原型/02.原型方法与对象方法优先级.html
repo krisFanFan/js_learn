@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  let hd ={
+    show:function(){
+      console.log('后盾人')
+    },
+    render:function(){
+       console.log("自己的render方法")
+  }
+  }
+  hd.__proto__.render=function(){
+       console.log("长辈的render方法")
+  }
+  hd.render()  //当自己和原型都有同一方法,先执行自己的
+  console.dir(hd)
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button message="后盾人" class="red">后盾人</button>
+  <button message="hdcms">hdcms</button>
+</body>
+<script>
+  // 需求:只想要定义有class属性的按钮
+
+
+  let btns = document.querySelectorAll('button');
+  // 调用filter方法的时候需要一个参数,用call方法
+  // btns= 更新按钮
+  btns =/* Array.prototype8*/[].filter.call(btns, item => {
+    // 判断元素是否包含这个属性
+    // hasAttribute() 方法用于判断是否有指定的属性存在，如果存在返回 true，否则返回 false。
+    return item.hasAttribute("class")
+  })
+  console.log(btns)
+</script>
+
+</html>
