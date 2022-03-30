@@ -47,7 +47,6 @@ console.log(reg.__proto__ ==RegExp.prototype)
 所以一般我们是不会直接访问C.prototype去获取原型对象的，在ES5的环境中，我们使用Object.getPrototype(obj)来获取原型对象，而在不支持ES5的环境中，我们可以考虑用__proto__这样的非标准方法来当做权宜之计，希望各位不明白的同学能牢记这些区别。
 */
 
-
 /*
 2.没有原型的对象
 ECMAScript 5 中引入了一个新方法：Object.create()。可以调用这个方法来创建一个新对象。新对象的原型就是调用 create 方法时传入的第一个参数：
@@ -61,11 +60,36 @@ let crea = Object.create(null,{
 // console.log(crea) //没有原型
 
 //__proto__有值时是设置原型，没值时是获取原型
-let getProto = {name:'后盾'}
-getProto.__proto__ = {a:'1'}
-console.log(getProto.__proto__)
+// let getProto = {name:'后盾'}
+crea.__proto__ = {a:'1'}
+console.log(crea.__proto__)
 
 // __proto__属性是一个访问器属性（一个getter函数和一个setter函数）, 暴露了通过它访问的对象的内部[[Prototype]] (一个对象或 null)。
+// let getterData = {name:'后盾突然'}
+// getterData.__proto__={
+//   show(){
+//     console.log(this.name)
+//   }
+// }
+// getterData.__proto__=99;//改动后原型依然是是show
+// console.log(getterData.__proto__)
+
+let getterData = {
+  action:{},
+ get proto(){
+   return this.action;
+ }, 
+ set proto(obj){
+   if(obj instanceof Object){
+    this.action = obj
+    
+   }
+ }
+}
+// hd.proto = 'abc'//不是对象设置无效
+hd.proto = {a:'q'}
+
+console.log(hd.proto)
 
 </script>
 </html>
