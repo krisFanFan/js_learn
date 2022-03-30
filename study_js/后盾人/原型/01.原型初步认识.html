@@ -39,25 +39,20 @@ console.log(reg.__proto__ ==RegExp.prototype)
 
 
 /*
-C.prototype用于获取由构造函数 new C() 创建的对象的原型。
-Object.getPrototype(obj)是ES5中用来获取obj对象的原型对象的标准方法。
-obj.__proto__是获取obj对象的原型对象的非标准方法。
+1.C.prototype用于获取由构造函数 new C() 创建的对象的原型。
+2.Object.getPrototype(obj)是ES5中用来获取obj对象的原型对象的标准方法。
+3.obj.__proto__是获取obj对象的原型对象的非标准方法,他是为了方便让用户可以直接获取原型。
 
 
 所以一般我们是不会直接访问C.prototype去获取原型对象的，在ES5的环境中，我们使用Object.getPrototype(obj)来获取原型对象，而在不支持ES5的环境中，我们可以考虑用__proto__这样的非标准方法来当做权宜之计，希望各位不明白的同学能牢记这些区别。
 */
 
 
-
-
-
-
-
-
 /*
 2.没有原型的对象
 ECMAScript 5 中引入了一个新方法：Object.create()。可以调用这个方法来创建一个新对象。新对象的原型就是调用 create 方法时传入的第一个参数：
 */
+// create只是定义对象的原型不能获取
 let crea = Object.create(null,{
   name:{
     value:'www'
@@ -65,7 +60,12 @@ let crea = Object.create(null,{
 })
 // console.log(crea) //没有原型
 
+//__proto__有值时是设置原型，没值时是获取原型
+let getProto = {name:'后盾'}
+getProto.__proto__ = {a:'1'}
+console.log(getProto.__proto__)
 
+// __proto__属性是一个访问器属性（一个getter函数和一个setter函数）, 暴露了通过它访问的对象的内部[[Prototype]] (一个对象或 null)。
 
 </script>
 </html>

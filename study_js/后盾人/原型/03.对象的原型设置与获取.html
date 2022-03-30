@@ -17,8 +17,11 @@ let parent = {name:'parent',show(){
 }}
 // console.log(hd.__proto__ ==Object.prototype)
 Object.setPrototypeOf(hd,parent)//设置hd的原型是parent
-// console.log(hd)
+console.log(hd)
 hd.show()//hd也可以用自己设置的原型里面的方法show
-parent.show()
+// parent.show()
+
+
+console.log(Object.getPrototypeOf(hd)) //获取原型
 </script>
 </html>
