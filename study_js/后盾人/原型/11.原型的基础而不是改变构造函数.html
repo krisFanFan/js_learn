@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //原型的继承，而不是改变构造函数的原型
+function User(){}
+User.prototype.name=function(){
+ console.log('feifie')
+}
+let hd = new User()
+
+function Admin(){}
+Admin.prototype = User.prototype //直接改变Admin的原型会造成混乱
+let a = new Admin()
+
+
+// 继承是原型的继承
+console.log(Admin.prototype.__proto__ )
+  </script>
+</body>
+</html>
