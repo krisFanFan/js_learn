@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  //类声明
+// class User {
+// }
+// console.log(new Article());
+
+// let Article = class {
+// };
+// console.log(new User());
+
+// 使用 constructor 构造函数传递参数，
+// constructor 会在 new 时自动执行
+class User {
+  // 传递参数
+  constructor(name) {
+    this.name = name
+  }
+  getName() {
+    return this.name
+  }
+}
+let hd = new User('飞飞');
+// console.log(hd.name)
+// console.log(hd.getName())
+
+
+//1.类原理分析
+// 类其实是函数
+class Act {
+  constructor(name){
+ this.name = name
+  }
+  show(){
+
+  }
+}
+console.log(typeof Act); //function
+let fei = new Act('飞飞')
+console.log(fei.name)
+console.log(Object.getOwnPropertyNames(fei))// 获取属性名字
+
+
+// 2.类对象属性的声明
+class Two {
+  site = 'dog';
+  constructor(name) {
+    this.name = name
+  }
+  changeSite(value){
+    this.site = value //可以改变site的值
+  }
+  show(){
+    return `${this.site}:${this.name}`
+  }
+}
+let wzk = new Two('类对象属性的声明')
+wzk.changeSite('吃饭')
+console.log(wzk.show())
+
+
+</script>
+</html>
