@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //     多态性指的是：同一操作作用与不同类的实例，将产生不同的执行结果，即不同类的对象收到相同的消息时，将得到不同的结果。
+    // 实现多态的三个必要条件：
+    // 1.继承
+    // 2.重写
+    // 3.父类引用指向子类对象
+    // 通俗来讲就是同一个函数，因为传递的参数列表不同，可以实现的不同的功能
+
+    function User() {}
+    User.prototype.show = function () {
+      console.log(this.description());
+    }
+
+    // 子类Admin
+    function Admin() {}
+    Admin.prototype = Object.create(User.prototype);
+    Admin.prototype.description = function () {
+      return '管理员在此'
+    }
+
+    function Member() {}
+    Member.prototype = Object.create(User.prototype);
+    Member.prototype.description = function () {
+      return '我是会员'
+    }
+
+    function Enterprise() {}
+    Enterprise.prototype = Object.create(User.prototype)
+    Enterprise.prototype.description = function () {
+      return '企业账户'
+    }
+
+    // 根据不同的状态响应不同的结果
+    for (const obj of [new Admin, new Member, new Enterprise]) {
+      obj.show()
+    }
+  </script>
+</body>
+
+</html>

@@ -16,12 +16,18 @@ User.prototype.name=function(){
 let hd = new User()
 
 function Admin(){}
-Admin.prototype = User.prototype //直接改变Admin的原型会造成混乱
-let a = new Admin()
+// Admin.prototype = User.prototype //直接改变Admin的原型会造成混乱
 
 
 // 继承是原型的继承
-console.log(Admin.prototype.__proto__ )
+//方法1
+Admin.prototype.__proto__=User.prototype
+
+
+let a = new Admin()
+a.name();
+
+
   </script>
 </body>
 </html>
