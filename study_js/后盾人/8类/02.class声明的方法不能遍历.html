@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
-    
+    function Hd(name) {
+      this.name = name;
+    }
+    Hd.prototype.show = function () {}
+    let h = new Hd('s');
+    // console.log(Object.getOwnPropertyDescriptor(Hd.prototype, "show"))
+    for (const key in h) {//可以遍历到show
+      if (h.hasOwnProperty(key)) {
+        // h.hasOwnProperty只检测自己当前属性，不检测上一级原型,保证只遍历name，不遍历原型链上的show方法
+        console.log(key)
+      }
+    }
+
+    class fei {
+      constructor(name) {
+        this.name = name
+      }
+      show(){
+
+      }
+    }
+    let u = new fei()
+    // console.log(Object.getOwnPropertyDescriptor(fei.prototype, "show"))
+    for (const key in u) {
+    console.log(key)
+    }
+    console.dir(fei)
   </script>
 </body>
+
 </html>
