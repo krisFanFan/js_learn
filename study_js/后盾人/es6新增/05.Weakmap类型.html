@@ -1,62 +1,63 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
-  </head>
-  <body>
-    <div>one</div>
-    <div>two</div>
 
-    <script>
-      let divs = document.querySelectorAll('div');
-      let map = new WeakMap();
-     let newDiv= divs.forEach(item=>map.set(item,item.innerHTML));
-     
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="" />
+</head>
 
+<body>
+  <div>one</div>
+  <div>two</div>
 
-
-     // 1.、WeakMap只接受对象作为key，如果设置其他类型的数据作为key，会报错。
-
-// 2、WeakMap的key所引用的对象都是弱引用，只要对象的其他引用被删除，垃圾回收机制就会释放该对象占用的内存，从而避免内存泄漏。
-
-// 3、由于WeakMap的成员随时可能被垃圾回收机制回收，成员的数量不稳定，所以没有size属性。
-
-// 4、没有clear()方法
-
-// 5、不能遍历,不能用keys()方法,for循环
-
-let weakMap = new WeakMap()
-
-// weakMap.set('aa',"ww")//错误
-weakMap.set({},"ww")
-console.log(weakMap)
+  <script>
+    let divs = document.querySelectorAll('div');
+    let map = new WeakMap();
+    let newDiv = divs.forEach(item => map.set(item, item.innerHTML));
 
 
-let arr = []
-let mapArr= new WeakMap();
-mapArr.set(arr,"hdcms.com");
-mapArr.delete(arr);
-console.log(mapArr)
-console.log(mapArr.has(arr))
 
 
-// 弱引用
-let hd = {"nam":"sssss"}
-cms = hd
-let roi = new WeakMap();
-roi.set(hd,'sss')
-hd = null;
-cms = null;
-console.log(roi) //能打印，但是里面没值，内存已经没了，因为这种弱引用特性，所以不能用keys等特性
-    </script>
-  </body>
+    // 1.、WeakMap只接受对象作为key，如果设置其他类型的数据作为key，会报错。
+
+    // 2、WeakMap的key所引用的对象都是弱引用，只要对象的其他引用被删除，垃圾回收机制就会释放该对象占用的内存，从而避免内存泄漏。
+
+    // 3、由于WeakMap的成员随时可能被垃圾回收机制回收，成员的数量不稳定，所以没有size属性。
+
+    // 4、没有clear()方法
+
+    // 5、不能遍历,不能用keys()方法,for循环
+
+    let weakMap = new WeakMap()
+
+    // weakMap.set('aa',"ww")//错误
+    weakMap.set({}, "ww")
+    console.log(weakMap)
+
+
+    let arr = []
+    let mapArr = new WeakMap();
+    mapArr.set(arr, "hdcms.com");
+    mapArr.delete(arr);
+    console.log(mapArr)
+    console.log(mapArr.has(arr))
+
+
+    // 弱引用
+    let hd = {
+      "nam": "sssss"
+    }
+    cms = hd
+    let roi = new WeakMap();
+    roi.set(hd, 'sss')
+    hd = null;
+    cms = null;
+    console.log(roi) //能打印，但是里面没值，内存已经没了，因为这种弱引用特性，所以不能用keys等特性
+  </script>
+</body>
+
 </html>

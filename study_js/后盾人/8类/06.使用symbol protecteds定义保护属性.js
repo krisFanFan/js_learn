@@ -1,5 +1,5 @@
 
-// 保护属性的方法:
+// 保护属性的方法: 受保护的属性子类及其父类可以访问，外部不可以访问
 // 使用symbol protecteds定义保护属性
 const protecteds = Symbol()
 class Common { //父类
