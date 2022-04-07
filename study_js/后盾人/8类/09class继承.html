@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+// class 属性继承原理
+/*
+function User(name) {
+  this.name = name
+}
+function Admin(name) {
+  // 属性继承
+  User.call(this, name) //属性继承
+}
+Admin.prototype = Object.create(User.prototype)
+Admin.prototype.show = function () {
+  console.log('admin.show')
+}
+let hd = new Admin('飞飞')
+console.log(hd)
+*/
+
+
+//1. 类属性继承
+/*
+class Demo {
+  constructor (name){
+    console.log('父类')
+  this.name= name
+  }
+}
+class Admin extends Demo{
+  constructor (name){
+  // 使用super继承 属性
+  super(name)
+  }
+}
+let hcms = new Admin('fou')
+// console.log(hcms)*/
+
+// 对比构造函数
+/*
+function User(name) {
+  this.name = name
+}
+User.prototype.show = function () {
+console.log('飞飞')
+}
+function Admin() {}
+Admin.prototype = Object.create(User.prototype)
+// console.dir(Admin)
+*/
+
+
+//2.类方法继承
+class User {
+   show(){
+     console.log('后盾')
+   }
+}
+ class Admin  extends User {
+
+ }
+ console.dir(Admin)
+ let fei = new Admin();
+ fei.show()
+  </script>
+</body>
+</html>
