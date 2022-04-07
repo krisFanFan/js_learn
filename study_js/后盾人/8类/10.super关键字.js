@@ -40,3 +40,4 @@ let data = [
 ]
 let hcms = new Lesson(data);
 console.log(hcms.info())
+var a = '1'
