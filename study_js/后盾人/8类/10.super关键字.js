@@ -37,7 +37,6 @@ class Lesson extends Controller {
 let data = [
   { name: "js",price:66},
   { name: "css",price:99}
-]
+]  
 let hcms = new Lesson(data);
 console.log(hcms.info())
-var a = '1'
