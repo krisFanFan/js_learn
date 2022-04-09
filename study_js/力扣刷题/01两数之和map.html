@@ -19,7 +19,7 @@
 				const complement = target - nums[i]
 				if(map.has(complement)) {
 					return [map.get(complement), i] //get是获取map里的值，下面反过来存，这里就刚好获取的是对应值的下标
-				} else {
+				} else {      
 					map.set(nums[i], i)
 				}
 			}
