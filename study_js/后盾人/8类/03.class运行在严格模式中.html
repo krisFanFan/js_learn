@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    // function init() {
+    //   console.log(this)//非严格模式下是window,严格模式下是undefined
+    // }
+    // init()
+
+    function Init() {}
+    Init.prototype.show = function () {
+      function test() {
+        console.log(this) //非严格模式下是window,严格模式下是undefined
+      }
+      test();
+    };
+    let u = new Init();
+    u.show();
+
+    class Hd {
+      show() {
+        function test() {
+          console.log(this)//默认使用的就是严格模式
+        }
+        test()
+      }
+    }
+    let h = new Hd();
+    h.show(); 
+  </script>
+</body>
+
+</html>

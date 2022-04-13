@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function User() {}
+    User.prototype.show = function () {
+      console.log('user.show');
+    }
+    User.prototype.site = function () {
+      console.log('user.site')
+    }
+    function Admin() {}
+    Admin.prototype = Object.create(User.prototype); //创建一个新对象，对像的原形指向到User.prototype
+    Admin.prototype.constructor = Admin;
+    Admin.prototype.show = function () {
+      console.log('Admin.show');
+      // 当父级方法不足以满足功能时候，可以重写父级方法
+      User.prototype.site()
+    }
+    let hd = new Admin();
+    hd.show()
+  </script>
+</body>
+
+</html>

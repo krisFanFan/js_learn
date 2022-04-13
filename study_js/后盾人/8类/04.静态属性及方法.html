@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 静态属性
+    function Web(url){
+   this.url= url
+}
+Web.url = 'hdcmd.com'
+let hd = new Web('www.baodu.com')
+// console.log(hd)//获取对象属性
+// console.log(Web.url)//获取构造函数属性即静态属性
+
+
+// class User{
+  // static host = '1' //静态属性
+  //  host = 'www' //普通属性
+// }
+// let obj = new User();
+// console.log(obj)
+// console.log(User)
+
+
+// 静态方法
+function User(){}
+// User.prototype.show = function () {
+//   console.log('User.prototype.show')
+// }
+// 由于函数也是对象
+User.getName = function(){ //定义到函数上属于静态方法
+  // console.log('static.getName')
+}
+let Hd = new User()
+// console.log(Hd)
+User.getName()
+
+
+class Fei {
+  static show(){
+    console.log('static.show')
+  }
+   show(){
+    console.log('prototype.show')
+  }
+}
+Fei.show()
+let hdcms = new Fei()
+console.log(hdcms.show())
+  </script>
+</body>
+</html>

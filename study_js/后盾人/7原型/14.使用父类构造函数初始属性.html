@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 使用父类构造函数初始属性
+    function User(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    User.prototype.show = function () {
+      console.log(this.name, this.age)
+    }
+
+    // 子类Admin
+    function Admin(...args) {
+      // User.call(this,name,age)
+      User.apply(this, args) //接收多个参数用apply
+    }
+    Admin.prototype = Object.create(User.prototype);
+    let xj = new Admin('feifei', 23)
+    xj.show() //每个子类都可以访问show方法
+  </script>
+</body>
+
+</html>
