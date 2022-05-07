@@ -6,7 +6,7 @@
 
 // 直接获取时间戳
 const date = Date.now();
-console.log(date)
+// console.log(date)
 
 // 查看for循环执行时间
 // const start = Date.now()
@@ -23,17 +23,17 @@ console.log(date)
 // console.log(date)
 // console.log(date.getMonth())//得到月份
 
-// const date = new Date(1999,2,11,3,22,10)
-// console.log(date)
+const date = new Date(1999,2,11,3,22,10)
+console.log(date)
 
-// const param = [1999,2,11,3,22,10]
-// const date1  = new Date(...param);
-// console.log(date1)
+const param = [1999,2,11,3,22,10]
+const date1  = new Date(...param);
+console.log(date1)
 
 // 标准时间转换成时间戳
 const preDate = new Date();
 // 下面四中方法获取时间戳
-// console.log(preDate * 1)
+console.log(preDate * 1)
 // console.log(Number(preDate))
 // console.log(preDate.valueOf())
 // console.log(preDate.getTime())

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    function handleTime(startTime, endTime, period) {
+      let startismore = Number(startTime.slice(-2))
+      let endismore = Number(endTime.slice(-2))
+      let startTimeqian = Number(startTime.slice(0, 2))
+      const endTimeqian = Number(endTime.slice(0, 2))
+      const isendTime = startismore <= 59 && endismore
+      const isstartTime = startTimeqian <= 23 && endTimeqian
+      if (isstartTime && isendTime && startTime != endTime) {
+        let resultArr = []
+        let M = (endTimeqian - startTimeqian) * 60 - startismore + endismore
+        const count = Math.floor(M / period)
+        for (var i = 1; i <= count; i++) {
+          if (startismore + period >= 60) {
+            startTimeqian = startTimeqian += 1
+            startismore = 0
+
+          } else if (startismore > period) {
+            let a = startismore - (startismore % 15)
+            startismore = a += period
+            startTimeqian = startTimeqian
+          } else if (startismore < period) {
+            startTimeqian = startTimeqian
+            startismore = period
+          } else if (startismore == period) {
+            startTimeqian = startTimeqian
+            startismore = startismore += period
+          }
+
+          resultArr.push(`${startTimeqian}:${startismore < 10 ? '0' + startismore : startismore}`)
+
+        }
+        return resultArr
+
+      } else return null
+      //  大 小 少一次
+    }
+    const arr = handleTime('09:33', '10:45', 15) //小 大
+    console.log('arr：', arr)
+  </script>
+</body>
+
+</html>
