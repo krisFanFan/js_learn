@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    function handleTime(startTime, endTime, period) {
+      let startismore = Number(startTime.slice(-2))
+      let endismore = Number(endTime.slice(-2))
+      let startTimeqian = Number(startTime.slice(0, 2))
+      const endTimeqian = Number(endTime.slice(0, 2))
+      const isendTime = startismore <= 59 && endismore
+      const isstartTime = startTimeqian <= 23 && endTimeqian
+      if (isstartTime && isendTime && startTime != endTime) {
+        let resultArr = []
+        let M = (endTimeqian - startTimeqian) * 60 - startismore + endismore
+        const count =Math.floor(M / period)
+
+        for (var i = 1; i <= count; i++) {
+          if (startismore + period >= 60) {
+            startTimeqian = startTimeqian += 1
+            startismore = 0
+              console.log('ss')
+          } else if (startismore > period) {
+            let a = startismore - (startismore % 15)
+            startismore = a += period
+            startTimeqian = startTimeqian
+
+          } else if (startismore < period) {
+            startTimeqian = startTimeqian
+            startismore = period
+          } else if (startismore == period) {
+            startTimeqian = startTimeqian
+            startismore = startismore += period
+          }
+
+          resultArr.push(`${startTimeqian}:${startismore < 10 ? '0' + startismore : startismore}`)
+
+        }
+        return resultArr
+
+      } else return null
+    }
+    const arr = handleTime('09:48', '10:01', 15)
+    console.log('arr：', arr)
+
+
+
+
+    const tim = function (startTime = '2020-10-26 08:00', endTime = '2020-10-26 08:32', timeInterval = 30) {
+        let start = new Date(startTime);
+        let end = new Date(endTime);
+        let startDate = start.getTime();
+        let endDate = end.getTime();
+        const space = timeInterval * 60 * 1000;
+        let mod = endDate - startDate;
+        let dateArray = [];
+        while (mod > space) {
+          let d = new Date();
+          d.setTime(startDate + space);
+          dateArray.push(d);
+          mod = mod - space;
+          startDate = startDate + space;
+        }
+        dateArray.unshift(new Date(start.getTime()));
+        dateArray.push(new Date(end.getTime()));
+        function checkTime(i) { //getMinutes()方法默认小于10返回一位数==>比如(9:0)，该方法返回(9:00)
+          if (i < 10) {
+            i = '0' + i;
+          }
+          return i;
+        }
+        let a = dateArray.map((item) => {
+          item = item.getHours() + ':' + checkTime(item.getMinutes());
+          return item;
+        });
+        return a
+      }
+
+      console.log(tim())
+  </script>
+</body>
+
+</html>

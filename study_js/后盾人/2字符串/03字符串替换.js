@@ -1,7 +1,7 @@
 
 const hd = 'houdunren112';
 console.log(hd.replace('houdunren', 'baidu')); //baidu
-// 使用正则
+// 配合使用正则
 console.log(hd.replace(/\d/g,'*'))
 // 字符串重复
 console.log('*'.repeat(5));
