@@ -20,6 +20,10 @@ console.log(args)
 // 设置默认值
 let [hei,year1=2020]  = ['苹果']
 
+console.log([5, 4, 3, 20].reduce((a, b) => {
+  return a + b
+}))
+
 
 
 
