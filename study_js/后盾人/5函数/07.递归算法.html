@@ -16,8 +16,6 @@
     <script>
       // 使用函数完成递归算法,递归求5的阶层 5!
       function factorial(params) {
-        // if(params==1) return 1;
-        // return params* factorial(params-1)
         return params == 1 ? 1 : params * factorial(--params);
       }
       // console.log(factorial(3))
@@ -42,11 +40,9 @@
         document.write('*'.repeat(params)+"<br>")
         star(--params);
         //  document.write('*'.repeat(params)+"<br>") 打印为undefined 可以用||
-        document.write('*'.repeat(params)+"<br>")||star(--params); 
+        document.write('*'.repeat(params)+"<br>")||star(--params);
       }
       star(5);
-      
-
       // 通过递归改变课程的点击次数
       let lessons =[{
         title:"vue",
@@ -61,7 +57,7 @@
         title:"PHP",
         click:23
       }]
-     
+
 
      function change(lessons,num=100,i=0) {
      if(i==lessons.length){

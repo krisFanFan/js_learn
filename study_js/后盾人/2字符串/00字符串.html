@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <script>
+      // 定义字符串
+      let hd = new String('feifie');
+      console.log(hd.toString()); //通过toString方法获得字符串
+
+      let fei = 'h"da'; // 等于=》"h\"da"
+      console.log(fei); //h"da
+
+      let fei1 = 'app\\le';
+      console.log(fei1); //输出app\le
+
+      //  \t    空格
+      //  \n    换行
+
+      // 字符串连接
+      let year = '2020',
+        site = '吃饭';
+      console.log(year + site + '喝水');
+      let all = `${year}${site}吃饭。`;
+      console.log(all);
+
+      // 模板字符串
+      // let str = 'red';
+      // str += '苹果';
+      // console.log(str); //red苹果
+
+      //在模板字符串里调用函数
+      function show() {
+        return 'baidu.com';
+      }
+      let baidu = `www.${show()}`;
+      console.log(baidu);
+      //字符串里写
+      let lessons = [{ title: 'apple' }, { title: '香蕉' }, { title: '橘子' }];
+      function template() {
+        return `<ul>${lessons
+          .map((item) => `<li> ${item.title}</li>`)
+          .join('')}</ul>`;
+      }
+      document.body.innerHTML = template();
+    </script>
+  </body>
+</html>
